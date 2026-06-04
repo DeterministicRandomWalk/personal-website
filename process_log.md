@@ -99,3 +99,4 @@
 - Swapped series illustrations:
   - Part 0 now uses `src/assets/series-00-introduction-illustration.png`.
   - Part 1 now uses the previous pig/chicks illustration as `src/assets/series-01-impossible-task-illustration.png`.
+- Adjusted article heading hierarchy so `h3` subsection headings render smaller than `h2` section headings.
