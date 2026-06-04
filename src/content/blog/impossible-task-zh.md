@@ -2,6 +2,7 @@
 title: '第1篇：投资组合经理的不可能任务'
 description: '为什么“找到所有 ESG 披露”听起来简单，真正做起来却变成了工程问题。'
 pubDate: 'Jun 04 2026'
+heroImage: '../../assets/series-01-impossible-task-illustration.png'
 lang: 'zh-CN'
 ---
 

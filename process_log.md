@@ -96,3 +96,6 @@
   - English: `/blog/impossible-task-en/`
 - Anonymized Part 1 content before publication by replacing named companies, vendors, product names, model names, and tool/framework names with generic descriptions.
 - Removed named vendor fonts from the Chinese article font stack so generated CSS stays aligned with the no-company-name publishing rule.
+- Swapped series illustrations:
+  - Part 0 now uses `src/assets/series-00-introduction-illustration.png`.
+  - Part 1 now uses the previous pig/chicks illustration as `src/assets/series-01-impossible-task-illustration.png`.

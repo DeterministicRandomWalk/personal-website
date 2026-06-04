@@ -2,6 +2,7 @@
 title: 'Part 1: The Portfolio Manager’s Impossible Task'
 description: 'Why “find all ESG disclosure” sounds simple until it becomes an engineering problem.'
 pubDate: 'Jun 04 2026'
+heroImage: '../../assets/series-01-impossible-task-illustration.png'
 lang: 'en'
 ---
 
