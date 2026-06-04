@@ -56,3 +56,4 @@
 - Cloudflare Pages deployment succeeded after correcting the build output directory.
 - Cloudflare assigned the default production URL `personal-website-c80.pages.dev`.
 - Decision needed: either rename the Cloudflare Pages project for a nicer free `pages.dev` subdomain or attach a custom domain.
+- Decision: rename the Cloudflare Pages project to target the free production URL `deterministic-random-walk.pages.dev`.
