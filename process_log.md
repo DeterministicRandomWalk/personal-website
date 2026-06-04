@@ -64,3 +64,7 @@
 - New production URL: `https://deterministic-random-walk.pages.dev`.
 - Verified the new URL returns HTTP 200.
 - Updated `astro.config.mjs` `site` value to the new production URL so generated sitemap/canonical metadata use the correct domain.
+- Added the first real series article as linked Chinese and English blog posts.
+  - Chinese: `/blog/why-this-series-exists-zh/`
+  - English: `/blog/why-this-series-exists-en/`
+- Added optional blog post language metadata so translated posts can render with the correct HTML `lang` attribute.
