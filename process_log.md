@@ -79,3 +79,5 @@
 - Added the provided series illustration as `src/assets/series-00-pipeline-illustration.png`.
 - Reintroduced images for the bilingual Part 0 posts using the provided illustration.
 - Adjusted blog post and blog index image rendering to preserve natural aspect ratios and keep article images modest rather than full-width banners.
+- Removed the starter `Hello, world` blog post.
+- Rewrote the About page to introduce the site as a personal blog focused on the intersection of asset management and production-grade AI systems for investment workflows.
