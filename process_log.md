@@ -42,3 +42,4 @@
 - User noticed that public repo files exposed a local machine path containing the real macOS username.
 - Decision: sanitize public files and git history to avoid publishing real names, local paths, private account details, and machine-specific runtime paths.
 - Removed direct email links from the public site for now to reduce account correlation and spam exposure.
+- Added a privacy checklist to `AGENTS.md` requiring a sensitive-string scan before commits, pushes, or deployments.

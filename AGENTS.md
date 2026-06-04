@@ -8,6 +8,14 @@
 
 ## Use the dedicated personal account for GitHub and Cloudflare work
 
-## Avoid publishing personal local paths, real names, private emails, or machine-specific setup details
+## Privacy requirements before publishing
+
+- Always check privacy before committing, pushing, or deploying.
+- Do not publish real names, private emails, company account details, local usernames, absolute local paths, machine names, SSH key comments, tokens, secrets, or machine-specific setup details.
+- Public identity should use `DeterministicRandomWalk`.
+- Git commit identity for this repo should use GitHub no-reply email, not a private email address.
+- Public docs should use portable commands like `npm install`, `npm run dev`, and `npm run build`.
+- Do not document absolute home-directory paths, local cache paths, or Codex-specific dependency paths.
+- Before publishing, run a repository scan for sensitive strings and resolve any findings.
 
 ## Let me know each step and ask for my conformation. Explain each step
