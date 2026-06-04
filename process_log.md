@@ -100,3 +100,9 @@
   - Part 0 now uses `src/assets/series-00-introduction-illustration.png`.
   - Part 1 now uses the previous pig/chicks illustration as `src/assets/series-01-impossible-task-illustration.png`.
 - Adjusted article heading hierarchy so `h3` subsection headings render smaller than `h2` section headings.
+- Added Part 2 as linked Chinese and English posts.
+  - Chinese: `/blog/seven-layers-zh/`
+  - English: `/blog/seven-layers-en/`
+- Added the provided Part 2 illustration as `src/assets/series-02-seven-layers-illustration.png`.
+- Linked Part 1 forward to Part 2.
+- Anonymized Part 2 content before publication by replacing named organizations, roles, model/product names, frameworks, and specific vendors with generic descriptions.

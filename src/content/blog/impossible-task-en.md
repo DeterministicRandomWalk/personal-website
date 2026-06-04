@@ -138,7 +138,7 @@ The portfolio manager realizes this is not a prompt problem. It is an engineerin
 
 She brings the requirement to the development team: can we build a pipeline that does this correctly?
 
-Next: Part 2 — From “Just Throw It at AI” to 7,400 Lines of Code.
+Next: [Part 2 — From “Just Throw It at AI” to 7,400 Lines of Code](/blog/seven-layers-en/).
 
 ---
 
