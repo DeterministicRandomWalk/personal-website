@@ -57,3 +57,6 @@
 - Cloudflare assigned the default production URL `personal-website-c80.pages.dev`.
 - Decision needed: either rename the Cloudflare Pages project for a nicer free `pages.dev` subdomain or attach a custom domain.
 - Decision: rename the Cloudflare Pages project to target the free production URL `deterministic-random-walk.pages.dev`.
+- Renaming the Cloudflare Pages project display name did not change the assigned `pages.dev` hostname.
+- Checked Cloudflare's known-issues documentation and found that `*.pages.dev` subdomains cannot be changed after project creation.
+- Decision: because this Pages project is brand new and has no custom domain, the clean fix is to delete and recreate the Cloudflare Pages project with project name `deterministic-random-walk` during initial setup.
