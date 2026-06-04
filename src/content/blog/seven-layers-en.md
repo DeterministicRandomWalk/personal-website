@@ -93,7 +93,7 @@ The problem is not that AI is not smart enough. It is that nobody showed it the 
 
 Now you are sending paragraph-level context for 1,000 URLs per company.
 
-1,000 URLs × 200 tokens each = 200,000 tokens. Just for classification. Just for one company. Now multiply by 5,000.
+1,000 URLs × roughly 2,000 tokens each = 2 million tokens. Accurate classification usually cannot rely on the URL alone; it needs the surrounding paragraph-level context. Just for classification. Just for one company. Now multiply by 5,000.
 
 And the key problem remains: results are still not good enough. The model loses track of items in large batches. You need a smarter method.
 

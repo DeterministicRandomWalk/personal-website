@@ -106,3 +106,4 @@
 - Added the provided Part 2 illustration as `src/assets/series-02-seven-layers-illustration.png`.
 - Linked Part 1 forward to Part 2.
 - Anonymized Part 2 content before publication by replacing named organizations, roles, model/product names, frameworks, and specific vendors with generic descriptions.
+- Updated the Part 2 token-cost estimate in both Chinese and English to reflect URL plus surrounding paragraph context, changing the rough per-URL estimate from 200 tokens to 2000 tokens.
