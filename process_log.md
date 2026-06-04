@@ -70,3 +70,9 @@
 - Added optional blog post language metadata so translated posts can render with the correct HTML `lang` attribute.
 - Removed the large placeholder hero image from the bilingual series introduction posts.
 - Replaced the outdated series outline with the updated main-series and bonus-essay tables in both Chinese and English.
+- Added subtle responsive table styling to blog posts.
+- Verified locally that the bilingual posts no longer render hero images and each contains the updated main-series and bonus-essay tables.
+- Pushed the article update to GitHub.
+- Production still served the previous article version after waiting, so an empty commit was pushed to trigger Cloudflare Pages.
+- Production still served the previous version after the trigger commit.
+  - Next action: check Cloudflare Pages Deployments for the latest commit and retry/deploy from the dashboard if automatic deployments are paused, missing, queued, or failed.
