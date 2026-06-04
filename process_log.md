@@ -60,3 +60,7 @@
 - Renaming the Cloudflare Pages project display name did not change the assigned `pages.dev` hostname.
 - Checked Cloudflare's known-issues documentation and found that `*.pages.dev` subdomains cannot be changed after project creation.
 - Decision: because this Pages project is brand new and has no custom domain, the clean fix is to delete and recreate the Cloudflare Pages project with project name `deterministic-random-walk` during initial setup.
+- Deleted the original Cloudflare Pages project and recreated it with project name `deterministic-random-walk`.
+- New production URL: `https://deterministic-random-walk.pages.dev`.
+- Verified the new URL returns HTTP 200.
+- Updated `astro.config.mjs` `site` value to the new production URL so generated sitemap/canonical metadata use the correct domain.
