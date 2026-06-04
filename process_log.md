@@ -81,3 +81,10 @@
 - Adjusted blog post and blog index image rendering to preserve natural aspect ratios and keep article images modest rather than full-width banners.
 - Removed the starter `Hello, world` blog post.
 - Rewrote the About page to introduce the site as a personal blog focused on the intersection of asset management and production-grade AI systems for investment workflows.
+- Refined blog article design for a cleaner, less colorful reading experience:
+  - Title and date now lead the article before any image.
+  - Article images are smaller illustrations rather than banner-like hero images.
+  - Markdown tables have visible frames, cell borders, and horizontal scrolling on small screens.
+  - Blockquotes are quieter callout blocks.
+  - Chinese posts use a Chinese-first font stack.
+- Simplified the blog index from large image cards to a compact reading list.
