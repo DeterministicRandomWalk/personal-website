@@ -2,6 +2,7 @@
 title: 'Part 0: Why This Series Exists'
 description: 'An introduction to the series: “We built a pipeline with tens of thousands of lines of code. Why agents could not do it.”'
 pubDate: 'Jun 04 2026'
+heroImage: '../../assets/series-00-pipeline-illustration.png'
 lang: 'en'
 ---
 

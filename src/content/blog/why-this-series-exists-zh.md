@@ -2,6 +2,7 @@
 title: '第0篇：这个系列为什么存在——它讲什么'
 description: '关于“我们构建了一条几万行代码的流水线。Agents为何做不到。”这个系列的开篇说明。'
 pubDate: 'Jun 04 2026'
+heroImage: '../../assets/series-00-pipeline-illustration.png'
 lang: 'zh-CN'
 ---
 

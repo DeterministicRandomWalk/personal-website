@@ -76,3 +76,6 @@
 - Production still served the previous article version after waiting, so an empty commit was pushed to trigger Cloudflare Pages.
 - Production still served the previous version after the trigger commit.
   - Next action: check Cloudflare Pages Deployments for the latest commit and retry/deploy from the dashboard if automatic deployments are paused, missing, queued, or failed.
+- Added the provided series illustration as `src/assets/series-00-pipeline-illustration.png`.
+- Reintroduced images for the bilingual Part 0 posts using the provided illustration.
+- Adjusted blog post and blog index image rendering to preserve natural aspect ratios and keep article images modest rather than full-width banners.
