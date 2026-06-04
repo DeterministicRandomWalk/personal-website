@@ -107,3 +107,4 @@
 - Linked Part 1 forward to Part 2.
 - Anonymized Part 2 content before publication by replacing named organizations, roles, model/product names, frameworks, and specific vendors with generic descriptions.
 - Updated the Part 2 token-cost estimate in both Chinese and English to reflect URL plus surrounding paragraph context, changing the rough per-URL estimate from 200 tokens to 2000 tokens.
+- Updated the Part 2 per-company URL scale in both Chinese and English from 1000 to 10000 reviewed URLs, and adjusted the token-cost estimate to 20 million tokens per company before multiplying by portfolio scale.

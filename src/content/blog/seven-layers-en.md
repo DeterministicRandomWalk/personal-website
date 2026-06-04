@@ -59,7 +59,7 @@ This is the first place where human judgment becomes unavoidable. There is no fo
 
 It works. Sort of.
 
-For a large company with more than 1,000 URLs, this means multiple batches, minutes per batch, and costs that accumulate quickly. Sometimes an API call times out halfway through processing. Sometimes the response format is malformed: the model returns classifications for 47 of 50 URLs, and you do not know which three are missing. Sometimes it simply misclassifies.
+For a large company with more than 10,000 URLs, this means multiple batches, minutes per batch, and costs that accumulate quickly. Sometimes an API call times out halfway through processing. Sometimes the response format is malformed: the model returns classifications for 47 of 50 URLs, and you do not know which three are missing. Sometimes it simply misclassifies.
 
 `/content/dam/doc-847293.pdf` has no ESG keyword in the URL, so the model skips it.
 
@@ -91,9 +91,9 @@ The problem is not that AI is not smart enough. It is that nobody showed it the 
 
 ## Layer 2: Token Explosion
 
-Now you are sending paragraph-level context for 1,000 URLs per company.
+Now you are sending paragraph-level context for 10,000 URLs per company.
 
-1,000 URLs × roughly 2,000 tokens each = 2 million tokens. Accurate classification usually cannot rely on the URL alone; it needs the surrounding paragraph-level context. Just for classification. Just for one company. Now multiply by 5,000.
+10,000 URLs × roughly 2,000 tokens each = 20 million tokens. Accurate classification usually cannot rely on the URL alone; it needs the surrounding paragraph-level context. Just for classification. Just for one company. Now multiply by 5,000.
 
 And the key problem remains: results are still not good enough. The model loses track of items in large batches. You need a smarter method.
 
@@ -212,7 +212,7 @@ Even specialized ESG data providers need human fallback. Fully automated judgmen
 
 ## The Result
 
-Out of 1,000 candidate URLs, the model ultimately sees only a few dozen ambiguous groups.
+Out of 10,000 candidate URLs, the model ultimately sees only a few dozen ambiguous groups.
 
 Classification cost: a few cents to a few tenths of a dollar per company.
 
