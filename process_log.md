@@ -43,3 +43,9 @@
 - Decision: sanitize public files and git history to avoid publishing real names, local paths, private account details, and machine-specific runtime paths.
 - Removed direct email links from the public site for now to reduce account correlation and spam exposure.
 - Added a privacy checklist to `AGENTS.md` requiring a sensitive-string scan before commits, pushes, or deployments.
+- Checked official Astro and Cloudflare documentation for Cloudflare Pages deployment settings.
+  - Production branch: `main`
+  - Build command: `npm run build`
+  - Build output directory: `dist`
+  - Cloudflare Pages v3 build image uses Node.js 22 by default for new projects.
+- Decision: connect the GitHub repository through the Cloudflare dashboard rather than adding Cloudflare-specific runtime code, because the current site is static Astro output and does not need the Cloudflare adapter.
