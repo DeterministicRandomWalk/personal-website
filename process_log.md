@@ -95,3 +95,4 @@
   - Chinese: `/blog/impossible-task-zh/`
   - English: `/blog/impossible-task-en/`
 - Anonymized Part 1 content before publication by replacing named companies, vendors, product names, model names, and tool/framework names with generic descriptions.
+- Removed named vendor fonts from the Chinese article font stack so generated CSS stays aligned with the no-company-name publishing rule.
