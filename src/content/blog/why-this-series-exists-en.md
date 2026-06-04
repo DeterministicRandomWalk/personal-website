@@ -2,7 +2,6 @@
 title: 'Part 0: Why This Series Exists'
 description: 'An introduction to the series: “We built a pipeline with tens of thousands of lines of code. Why agents could not do it.”'
 pubDate: 'Jun 04 2026'
-heroImage: '../../assets/blog-placeholder-2.jpg'
 lang: 'en'
 ---
 
@@ -49,13 +48,30 @@ The argument is this: coding ability is no longer the scarce resource. Engineeri
 
 ## Series Outline
 
-1. **The Impossible Task**: Portfolio managers need all ESG data from 5,000 websites. Chatbots fail. The problem lands with the development team.
-2. **Where 7,400 Lines of Code Came From**: From “just throw it at AI” to a seven-layer classification architecture. Every layer is a lesson from a previous failure.
-3. **The 90% Agents Would Destroy**: LLMs are indispensable for 10% of the pipeline. The remaining 90% needs deterministic code: link extraction, query normalization, stopping rules, and PDF traps.
-4. **An Honest Comparison**: Pipeline vs. agents, with numbers. Cost, speed, completeness, and debuggability.
-5. **What the Research Says**: Anthropic’s labor research, Karpathy’s compositional framing, SWE-CI benchmarks. What the data actually shows.
-6. **The Leverage Gap**: Block cuts half its staff. Senior + AI = team. The career ladder has not disappeared, but the first rung has moved higher.
-7. **Context Accumulation**: Coding ability is solved. Engineering judgment is not. What agents will never, or at least not yet, learn.
+| Part | Title | Core Sentence |
+| :-- | :-- | :-- |
+| 1 | The Impossible Task | Portfolio managers need ESG data from 5,000 websites. Chatbots and regular expressions both fail. |
+| 2 | Where 7,400 Lines Came From | Seven layers of classification, each one a lesson from the previous failure. |
+| 3A | The 90% Agents Would Destroy, Part I | Large language models are irreplaceable for semantic judgment; the other 90% is orchestration. |
+| 3B | The 90% Agents Would Destroy, Part II | Six problems that look simple, each one enough to make an agent fail. |
+| 4 | An Honest Comparison | Pipeline vs. agents: 3–10 times more expensive, exponential failure rates, and a 0.6% chance of perfect execution. |
+| 5A | What the Research Says: Data | METR shows a reliability cliff; Anthropic finds augmentation, not automation. |
+| 5B | What the Research Says: Frameworks | Karpathy argues for composition, not replacement. |
+| 6 | The Leverage Gap | Senior + AI = team. The first rung of the career ladder has moved higher. |
+| 7 | Context Accumulation | Coding ability is solved. Engineering judgment is not. |
+| 8A | The Delegation Problem | Vague goals drift silently. Tools have ceilings. Models cannot see them. |
+| 8B | The Autonomy Spectrum | Even the advocates say something more complex than the headlines. The future is differentiated autonomy. |
+| 9 | The Other Extreme | “LLMs are dead” and “agents will rule the world” are equally attention-grabbing. Both are wrong in the same way. |
+| 10 | Two Rooms | Demo enthusiasts cannot finish it. Domain experts do not start it. The pipeline shipped because it listened to both rooms. |
+| 11 | Evidence | The credit team thought it was another demo. They got a production system. The success was not in the model; it was in the engineering. |
+
+## Bonus Essays
+
+| Part | Title | Core Sentence |
+| :-- | :-- | :-- |
+| A | Rebuttal | We ask AI to dismantle its own series. Five rounds of attack and response, answered honestly. |
+| B | Understand the System Before You Delegate the System | AI lowers the cost of learning a system, but it does not remove the need to understand it. Asking questions is not a substitute for understanding. |
+| C | Standing in the Middle Ground | The thought that wakes you up at midnight. Not fear, but something more complicated. |
 
 ## Who This Is For
 

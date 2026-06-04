@@ -52,6 +52,24 @@ const { title, description, pubDate, updatedDate, heroImage, lang = 'en' } = Ast
 			.last-updated-on {
 				font-style: italic;
 			}
+			.prose table {
+				display: block;
+				width: 100%;
+				overflow-x: auto;
+				border-collapse: collapse;
+				font-size: 0.9em;
+			}
+			.prose th,
+			.prose td {
+				padding: 0.55em 0.7em;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				vertical-align: top;
+			}
+			.prose th {
+				border-bottom: 2px solid var(--accent);
+				color: rgb(var(--black));
+				text-align: left;
+			}
 		</style>
 	</head>
 

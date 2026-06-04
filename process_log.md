@@ -68,3 +68,5 @@
   - Chinese: `/blog/why-this-series-exists-zh/`
   - English: `/blog/why-this-series-exists-en/`
 - Added optional blog post language metadata so translated posts can render with the correct HTML `lang` attribute.
+- Removed the large placeholder hero image from the bilingual series introduction posts.
+- Replaced the outdated series outline with the updated main-series and bonus-essay tables in both Chinese and English.
