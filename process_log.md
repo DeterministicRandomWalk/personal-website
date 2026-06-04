@@ -53,3 +53,6 @@
 - Deployment failed during asset validation because Cloudflare looked for an output directory named `npm run build`.
   - Diagnosis: the Cloudflare build output directory field was configured incorrectly.
   - Required fix: set Build command to `npm run build` and Build output directory / Build directory to `dist`.
+- Cloudflare Pages deployment succeeded after correcting the build output directory.
+- Cloudflare assigned the default production URL `personal-website-c80.pages.dev`.
+- Decision needed: either rename the Cloudflare Pages project for a nicer free `pages.dev` subdomain or attach a custom domain.
