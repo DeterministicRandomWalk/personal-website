@@ -88,3 +88,10 @@
   - Blockquotes are quieter callout blocks.
   - Chinese posts use a Chinese-first font stack.
 - Simplified the blog index from large image cards to a compact reading list.
+- Updated `AGENTS.md` privacy requirements to require blog-content scans for company names, person names, product/vendor names, and other identifying details before publication.
+- Added a note to the About page that the blog first took shape in March 2026 and has been kept updated.
+- Sanitized existing Part 0 posts to remove named model/research/person references from the published blog text.
+- Added Part 1 as linked Chinese and English posts.
+  - Chinese: `/blog/impossible-task-zh/`
+  - English: `/blog/impossible-task-en/`
+- Anonymized Part 1 content before publication by replacing named companies, vendors, product names, model names, and tool/framework names with generic descriptions.

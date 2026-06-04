@@ -43,7 +43,7 @@ The hype around agentic AI says LLMs can handle everything by themselves: just g
 
 Engineers building effective AI systems are not replacing code with agents. They are combining intelligence with precision, and using hard-won experience to decide where the boundary belongs.
 
-This is not an anti-AI argument. This project uses Claude every day. It is frankly wonderful. The pipeline itself is now being refactored with its help.
+This is not an anti-AI argument. This project uses large language model tools every day. They are frankly wonderful. The pipeline itself is now being refactored with their help.
 
 The argument is this: coding ability is no longer the scarce resource. Engineering judgment is. No amount of agent framework packaging changes that. Fine, let us put a time limit on the claim: at least not for the next few years.
 
@@ -56,8 +56,8 @@ The argument is this: coding ability is no longer the scarce resource. Engineeri
 | 3A | The 90% Agents Would Destroy, Part I | Large language models are irreplaceable for semantic judgment; the other 90% is orchestration. |
 | 3B | The 90% Agents Would Destroy, Part II | Six problems that look simple, each one enough to make an agent fail. |
 | 4 | An Honest Comparison | Pipeline vs. agents: 3–10 times more expensive, exponential failure rates, and a 0.6% chance of perfect execution. |
-| 5A | What the Research Says: Data | METR shows a reliability cliff; Anthropic finds augmentation, not automation. |
-| 5B | What the Research Says: Frameworks | Karpathy argues for composition, not replacement. |
+| 5A | What the Research Says: Data | Reliability cliffs; labor research finds augmentation, not automation. |
+| 5B | What the Research Says: Frameworks | Composition, not replacement. |
 | 6 | The Leverage Gap | Senior + AI = team. The first rung of the career ladder has moved higher. |
 | 7 | Context Accumulation | Coding ability is solved. Engineering judgment is not. |
 | 8A | The Delegation Problem | Vague goals drift silently. Tools have ceilings. Models cannot see them. |
@@ -90,4 +90,4 @@ Start reading: Part 1 — The Portfolio Manager’s Impossible Task.
 
 Chinese original: [第0篇：这个系列为什么存在——它讲什么](/blog/why-this-series-exists-zh/).
 
-Originally published on WeChat: [source article](https://mp.weixin.qq.com/s/qw-Ie9LnVovSIEnW4x83GA).
+Originally published externally: [source article](https://mp.weixin.qq.com/s/qw-Ie9LnVovSIEnW4x83GA).
