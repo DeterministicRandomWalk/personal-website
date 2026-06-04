@@ -49,3 +49,7 @@
   - Build output directory: `dist`
   - Cloudflare Pages v3 build image uses Node.js 22 by default for new projects.
 - Decision: connect the GitHub repository through the Cloudflare dashboard rather than adding Cloudflare-specific runtime code, because the current site is static Astro output and does not need the Cloudflare adapter.
+- First Cloudflare Pages deployment attempt cloned the repository and successfully ran `npm run build`.
+- Deployment failed during asset validation because Cloudflare looked for an output directory named `npm run build`.
+  - Diagnosis: the Cloudflare build output directory field was configured incorrectly.
+  - Required fix: set Build command to `npm run build` and Build output directory / Build directory to `dist`.
