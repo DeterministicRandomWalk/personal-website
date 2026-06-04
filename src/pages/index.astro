@@ -1,0 +1,33 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Deterministic Random Walk</h1>
+			<p>
+				Welcome to my personal website. This is the home for blog posts, working notes, and
+				technical explorations that benefit from being written down carefully.
+			</p>
+			<p>
+				The site is built with <a href="https://astro.build/">Astro</a> and prepared for a future
+				Cloudflare deployment.
+			</p>
+			<p>Current sections:</p>
+			<ul>
+				<li><a href="/blog">Blog</a> for long-form posts and notes.</li>
+				<li><a href="/about">About</a> for a short profile and contact links.</li>
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>

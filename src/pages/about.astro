@@ -1,0 +1,21 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About Me"
+	description="A short introduction and contact page."
+	pubDate={new Date('June 04 2026')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		This site is a place for blog posts, technical notes, and ideas that are worth revisiting.
+		It is intentionally simple for now so the writing can come first.
+	</p>
+
+	<p>
+		You can find the source and future deployment work under the GitHub account
+		<a href="https://github.com/DeterministicRandomWalk">DeterministicRandomWalk</a>.
+	</p>
+</Layout>
