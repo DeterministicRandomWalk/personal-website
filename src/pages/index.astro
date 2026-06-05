@@ -54,6 +54,52 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					</figcaption>
 				</figure>
 			</section>
+			<section class="featured-series" aria-labelledby="featured-series-title">
+				<p class="section-kicker">Featured series</p>
+				<h2 id="featured-series-title">
+					Start here: Why agents could not replace our production ESG pipeline.
+				</h2>
+				<div class="series-lists">
+					<div>
+						<h3>English</h3>
+						<ol>
+							<li><a href="/blog/why-this-series-exists-en/">Part 0: Why This Series Exists</a></li>
+							<li>
+								<a href="/blog/impossible-task-en/">Part 1: The Portfolio Manager’s Impossible Task</a>
+							</li>
+							<li>
+								<a href="/blog/seven-layers-en/">Part 2: From “Just Throw It at AI” to 7,400 Lines of Code</a>
+							</li>
+							<li>
+								<a href="/blog/llm-shines-agents-destroy-en/">Part 3A: Where LLMs Shine</a>
+							</li>
+							<li>
+								<a href="/blog/agents-destroy-orchestration-en/">Part 3B: The 90% Agents Would Destroy</a>
+							</li>
+						</ol>
+					</div>
+					<div>
+						<h3>中文</h3>
+						<ol>
+							<li>
+								<a href="/blog/why-this-series-exists-zh/">第0篇：这个系列为什么存在</a>
+							</li>
+							<li>
+								<a href="/blog/impossible-task-zh/">第1篇：投资组合经理的不可能任务</a>
+							</li>
+							<li>
+								<a href="/blog/seven-layers-zh/">第2篇：从“直接扔给 AI”到 7400 行代码</a>
+							</li>
+							<li>
+								<a href="/blog/llm-shines-agents-destroy-zh/">第3A篇：LLM 闪耀的地方</a>
+							</li>
+							<li>
+								<a href="/blog/agents-destroy-orchestration-zh/">第3B篇：智能体会毁掉的 90%</a>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
@@ -120,6 +166,48 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		font-size: 0.82em;
 		line-height: 1.45;
 	}
+	.featured-series {
+		margin-top: clamp(3rem, 8vw, 5rem);
+		padding-top: 2rem;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.section-kicker {
+		margin: 0 0 0.65rem;
+		color: rgb(var(--gray));
+		font-size: 0.82em;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.featured-series h2 {
+		max-width: 720px;
+		margin: 0 0 1.4rem;
+		font-size: clamp(1.55rem, 3vw, 2.1rem);
+		letter-spacing: 0;
+	}
+	.series-lists {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: clamp(1.5rem, 5vw, 3rem);
+	}
+	.series-lists h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		letter-spacing: 0;
+	}
+	.series-lists ol {
+		display: grid;
+		gap: 0.45rem;
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+	.series-lists li {
+		padding-left: 0.2rem;
+		line-height: 1.45;
+	}
+	.series-lists a {
+		text-underline-offset: 0.18em;
+	}
 	@media (max-width: 820px) {
 		.home {
 			padding-top: 2em;
@@ -130,6 +218,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		.intro-art img,
 		.intro-art figcaption {
 			margin-left: 0;
+		}
+		.series-lists {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

@@ -10,6 +10,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const seriesOrder = [
+	'why-this-series-exists',
+	'impossible-task',
+	'seven-layers',
+	'llm-shines-agents-destroy',
+	'agents-destroy-orchestration',
+];
+const seriesIndex = (id: string) => {
+	const baseId = id.replace(/-(en|zh)$/, '');
+	const index = seriesOrder.indexOf(baseId);
+	return index === -1 ? Number.POSITIVE_INFINITY : index;
+};
+const bySeriesOrder = (a, b) =>
+	seriesIndex(a.id) - seriesIndex(b.id) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+const englishPosts = posts.filter((post) => post.data.lang === 'en').sort(bySeriesOrder);
+const chinesePosts = posts.filter((post) => post.data.lang === 'zh-CN').sort(bySeriesOrder);
 ---
 
 <!doctype html>
@@ -19,6 +35,33 @@ const posts = (await getCollection('blog')).sort(
 		<style>
 			main {
 				width: 860px;
+			}
+			.blog-heading {
+				margin-bottom: 2rem;
+			}
+			.blog-heading h1 {
+				margin-bottom: 0.35rem;
+				font-size: clamp(2rem, 5vw, 3rem);
+				letter-spacing: 0;
+			}
+			.blog-heading p {
+				max-width: 660px;
+				margin: 0;
+				color: rgb(var(--gray));
+				line-height: 1.55;
+			}
+			.language-section {
+				margin-top: 2.5rem;
+			}
+			.language-section:first-of-type {
+				margin-top: 0;
+			}
+			.language-section h2 {
+				margin: 0 0 1rem;
+				padding-bottom: 0.65rem;
+				border-bottom: 1px solid rgb(var(--gray-light));
+				font-size: 1.35em;
+				letter-spacing: 0;
 			}
 			ul {
 				display: grid;
@@ -91,24 +134,54 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main>
+			<header class="blog-heading">
+				<h1>Blog</h1>
+				<p>
+					Bilingual essays and notes. English and Chinese versions are grouped separately to
+					keep the reading path clear.
+				</p>
+			</header>
 			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a class:list={{ 'text-only': !post.data.heroImage }} href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+				<div class="language-section" id="english-series">
+					<h2>English Series</h2>
+					<ul>
+						{
+							englishPosts.map((post) => (
+								<li>
+									<a class:list={{ 'text-only': !post.data.heroImage }} href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image width={720} src={post.data.heroImage} alt="" />
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+				<div class="language-section" id="chinese-series">
+					<h2>中文系列</h2>
+					<ul>
+						{
+							chinesePosts.map((post) => (
+								<li>
+									<a class:list={{ 'text-only': !post.data.heroImage }} href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image width={720} src={post.data.heroImage} alt="" />
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</section>
 		</main>
 		<Footer />

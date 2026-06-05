@@ -132,3 +132,5 @@
 - Added visible RSS links to the main navigation, footer, and homepage while keeping the existing RSS metadata in `BaseHead`.
 - Revised the homepage introduction to use a more professional positioning statement around markets, investment process, probabilistic models, and deterministic engineering.
 - Removed the About page hero image and the short conversational opening so the page stays text-focused.
+- Added a homepage featured-series block linking to Part 0 through Part 3B in both English and Chinese.
+- Reworked the blog index into separate English Series and 中文系列 sections so translated posts are grouped instead of interleaved.
