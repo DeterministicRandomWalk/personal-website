@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import homeArt from '../assets/home-deterministic-random-walk-art.png';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
@@ -12,21 +14,119 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>Deterministic Random Walk</h1>
-			<p>
-				Welcome to my personal website. This is the home for blog posts, working notes, and
-				technical explorations that benefit from being written down carefully.
-			</p>
-			<p>
-				The site is intentionally small and static, so the writing stays the main thing.
-			</p>
-			<p>Current sections:</p>
-			<ul>
-				<li><a href="/blog">Blog</a> for long-form posts and notes.</li>
-				<li><a href="/about">About</a> for a short profile and contact links.</li>
-			</ul>
+		<main class="home">
+			<h1 class="sr-only">Deterministic Random Walk</h1>
+			<section class="intro" aria-label="Site introduction">
+				<div class="intro-copy">
+					<p class="kicker">Deterministic Random Walk</p>
+					<p class="lead">
+						Life, markets, and human systems move through noise. The work is not to pretend
+						the randomness disappears, but to discover the few rules, values, and processes
+						that keep holding while everything else shifts.
+					</p>
+					<p>
+						That is also how I think about AI for investment work. Probabilistic models are
+						powerful because they can judge meaning in ambiguous places. Deterministic
+						engineering is what makes those judgments repeatable, auditable, and useful in
+						production.
+					</p>
+					<p>
+						This site is a small notebook on modernizing investment processes with
+						production-grade AI: art where uncertainty is real, science where reliability is
+						non-negotiable, and the discipline of combining both.
+					</p>
+					<nav class="home-links" aria-label="Primary pages">
+						<a href="/blog">Read the blog</a>
+						<a href="/about">About me</a>
+					</nav>
+				</div>
+				<figure class="intro-art">
+					<Image
+						src={homeArt}
+						width={420}
+						alt="A fixed rabbit template surrounded by energetic hand-drawn circles."
+					/>
+					<figcaption>
+						A fixed template inside wild circles: one small picture of the whole idea.
+					</figcaption>
+				</figure>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.home {
+		width: min(1040px, calc(100% - 2em));
+		padding: 3.5em 1em 4em;
+	}
+	.intro {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.8fr);
+		gap: clamp(2rem, 6vw, 4rem);
+		align-items: center;
+	}
+	.intro-copy {
+		max-width: 680px;
+	}
+	.kicker {
+		margin: 0 0 1rem;
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.lead {
+		margin: 0 0 1.1em;
+		color: rgb(var(--black));
+		font-size: clamp(1.55rem, 4vw, 2.35rem);
+		line-height: 1.16;
+	}
+	.intro-copy p:not(.kicker):not(.lead) {
+		max-width: 620px;
+		margin: 0 0 1.05em;
+		font-size: 1.02em;
+		line-height: 1.68;
+	}
+	.home-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		margin-top: 1.4em;
+	}
+	.home-links a {
+		text-underline-offset: 0.18em;
+		font-weight: 700;
+	}
+	.intro-art {
+		margin: 0;
+	}
+	.intro-art img {
+		display: block;
+		width: 100%;
+		max-width: 420px;
+		margin-left: auto;
+		border-radius: 8px;
+	}
+	.intro-art figcaption {
+		max-width: 420px;
+		margin: 0.75em 0 0 auto;
+		color: rgb(var(--gray));
+		font-size: 0.82em;
+		line-height: 1.45;
+	}
+	@media (max-width: 820px) {
+		.home {
+			padding-top: 2em;
+		}
+		.intro {
+			grid-template-columns: 1fr;
+		}
+		.intro-art img,
+		.intro-art figcaption {
+			margin-left: 0;
+		}
+	}
+</style>

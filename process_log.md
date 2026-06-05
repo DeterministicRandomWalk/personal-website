@@ -123,3 +123,9 @@
 - Stripped EXIF metadata from the Part 3B illustration before publication.
 - Linked Part 3A forward to Part 3B.
 - Anonymized Part 3B content before publication by replacing named organizations, cloud vendors, model names, browser frameworks, parsing libraries, operating systems, and company examples with generic descriptions while retaining public technical standards such as `robots.txt`.
+- Reworked the homepage introduction around the "deterministic random walk" metaphor:
+  - Life, markets, and human systems move through randomness.
+  - Investment modernization with AI needs probabilistic judgment combined with deterministic engineering.
+  - The homepage now links directly to Blog and About without repeating the large site title.
+- Added the provided homepage artwork as `src/assets/home-deterministic-random-walk-art.png`.
+- Stripped metadata/profile information from the homepage artwork before publication and described the image without publishing family-identifying details.
