@@ -180,7 +180,7 @@ That is not conservatism. It is engineering common sense.
 
 This is how the pipeline works. Next comes why agents cannot do it: six problems that look simple but break agentic systems in practice.
 
-Next: Part 3B — Where LLMs Shine, and the 90% Agents Would Destroy.
+Next: [Part 3B — Where LLMs Shine, and the 90% Agents Would Destroy](/blog/agents-destroy-orchestration-en/).
 
 ---
 

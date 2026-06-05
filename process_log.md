@@ -116,3 +116,10 @@
 - Anonymized Part 3A content before publication by replacing named people, organizations, products, browser frameworks, and specific vendor examples with generic descriptions.
 - Generalized the homepage platform/deployment wording so the public site does not display hosting-provider names unnecessarily.
 - Stripped EXIF metadata from the Part 3A illustration before publication to remove device model, software version, and capture timestamp.
+- Added Part 3B as linked Chinese and English posts.
+  - Chinese: `/blog/agents-destroy-orchestration-zh/`
+  - English: `/blog/agents-destroy-orchestration-en/`
+- Added the provided Part 3B illustration as `src/assets/series-03b-agents-destroy-illustration.jpeg`.
+- Stripped EXIF metadata from the Part 3B illustration before publication.
+- Linked Part 3A forward to Part 3B.
+- Anonymized Part 3B content before publication by replacing named organizations, cloud vendors, model names, browser frameworks, parsing libraries, operating systems, and company examples with generic descriptions while retaining public technical standards such as `robots.txt`.
