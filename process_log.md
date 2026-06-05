@@ -129,3 +129,6 @@
   - The homepage now links directly to Blog and About without repeating the large site title.
 - Added the provided homepage artwork as `src/assets/home-deterministic-random-walk-art.png`.
 - Stripped metadata/profile information from the homepage artwork before publication and described the image without publishing family-identifying details.
+- Added visible RSS links to the main navigation, footer, and homepage while keeping the existing RSS metadata in `BaseHead`.
+- Revised the homepage introduction to use a more professional positioning statement around markets, investment process, probabilistic models, and deterministic engineering.
+- Removed the About page hero image and the short conversational opening so the page stays text-focused.
