@@ -108,3 +108,11 @@
 - Anonymized Part 2 content before publication by replacing named organizations, roles, model/product names, frameworks, and specific vendors with generic descriptions.
 - Updated the Part 2 token-cost estimate in both Chinese and English to reflect URL plus surrounding paragraph context, changing the rough per-URL estimate from 200 tokens to 2000 tokens.
 - Updated the Part 2 per-company URL scale in both Chinese and English from 1000 to 10000 reviewed URLs, and adjusted the token-cost estimate to 20 million tokens per company before multiplying by portfolio scale.
+- Added Part 3A as linked Chinese and English posts.
+  - Chinese: `/blog/llm-shines-agents-destroy-zh/`
+  - English: `/blog/llm-shines-agents-destroy-en/`
+- Added the provided Part 3A illustration as `src/assets/series-03a-llm-shines-illustration.jpeg`.
+- Linked Part 2 forward to Part 3A.
+- Anonymized Part 3A content before publication by replacing named people, organizations, products, browser frameworks, and specific vendor examples with generic descriptions.
+- Generalized the homepage platform/deployment wording so the public site does not display hosting-provider names unnecessarily.
+- Stripped EXIF metadata from the Part 3A illustration before publication to remove device model, software version, and capture timestamp.

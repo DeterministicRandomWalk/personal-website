@@ -236,7 +236,7 @@ Every layer in this essay starts the same way: “AI should be able to handle th
 
 AI’s potential is real, and it is growing quickly. But potential is not delivery. Delivery comes from engineering. These seven layers do not reject AI. They are the price of making AI work in production, on real data, in settings where mistakes cost real money.
 
-Next: Part 3A — The 90% Agents Would Destroy.
+Next: [Part 3A — Where LLMs Shine, and the 90% Agents Would Destroy](/blog/llm-shines-agents-destroy-en/).
 
 ---
 
