@@ -64,7 +64,7 @@ The argument is this: coding ability is no longer the scarce resource. Engineeri
 | 8B | The Autonomy Spectrum | Even the advocates say something more complex than the headlines. The future is differentiated autonomy. |
 | 9 | The Other Extreme | “LLMs are dead” and “agents will rule the world” are equally attention-grabbing. Both are wrong in the same way. |
 | 10 | Two Rooms | Demo enthusiasts cannot finish it. Domain experts do not start it. The pipeline shipped because it listened to both rooms. |
-| 11 | Evidence | The credit team thought it was another demo. They got a production system. The success was not in the model; it was in the engineering. |
+| 11 | Evidence | A project initially treated as another demo became a production system. The success was not in the model; it was in the engineering. |
 
 ## Bonus Essays
 

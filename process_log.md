@@ -134,3 +134,5 @@
 - Removed the About page hero image and the short conversational opening so the page stays text-focused.
 - Added a homepage featured-series block linking to Part 0 through Part 3B in both English and Chinese.
 - Reworked the blog index into separate English Series and 中文系列 sections so translated posts are grouped instead of interleaved.
+- Added an internal interpersonal publication review that preserves sharp criticism of systems and technical claims while requiring real colleague anecdotes to be vague, non-identifiable, carefully paraphrased, and manually approved.
+- Removed a specific internal-team reference from the future Part 11 description in both Chinese and English.
