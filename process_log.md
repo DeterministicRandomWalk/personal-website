@@ -136,3 +136,5 @@
 - Reworked the blog index into separate English Series and 中文系列 sections so translated posts are grouped instead of interleaved.
 - Added an internal interpersonal publication review that preserves sharp criticism of systems and technical claims while requiring real colleague anecdotes to be vague, non-identifiable, carefully paraphrased, and manually approved.
 - Removed a specific internal-team reference from the future Part 11 description in both Chinese and English.
+- Removed external source links from all published bilingual posts to reduce cross-platform identity correlation risk.
+- Re-edited the English series as an independent public edition: preserved the technical arguments and failure mechanisms while generalizing exact project scale, organizational context, timelines, internal incidents, colleague anecdotes, and operational constants that could identify a workplace or team.

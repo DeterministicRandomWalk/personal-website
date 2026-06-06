@@ -87,5 +87,3 @@ AI 理解意义。代码保证行为。经验知道何处用何者。
 开始阅读：第 1 篇——投资组合经理的不可能任务。
 
 ---
-
-Originally published externally: [source article](https://mp.weixin.qq.com/s/qw-Ie9LnVovSIEnW4x83GA).

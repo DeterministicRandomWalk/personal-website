@@ -183,5 +183,3 @@ PDF 成功率 >= 阈值 -> 扩大 1.3x
 下一篇：[第 3B 篇——LLM 闪耀的地方，以及智能体会毁掉的 90%（下）](/blog/agents-destroy-orchestration-zh/)。
 
 ---
-
-Originally published externally: [source article](https://mp.weixin.qq.com/s/NznWqkryTsSSrGt6aLKNJw).

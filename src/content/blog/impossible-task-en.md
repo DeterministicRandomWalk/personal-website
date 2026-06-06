@@ -1,19 +1,19 @@
 ---
-title: 'Part 1: The Portfolio Manager’s Impossible Task'
-description: 'Why “find all ESG disclosure” sounds simple until it becomes an engineering problem.'
+title: 'Part 1: The Impossible Disclosure Task'
+description: 'Why “find all relevant corporate disclosure” sounds simple until it becomes an engineering problem.'
 pubDate: 'Jun 04 2026'
 heroImage: '../../assets/series-01-impossible-task-illustration.png'
 lang: 'en'
 ---
 
-> Series: We built a pipeline with tens of thousands of lines of code. Why agents could not do it.
+> Series: What production AI needs beyond an impressive model.
 
 [Previous: Part 0.](/blog/why-this-series-exists-en/)  
 [阅读中文版。](/blog/impossible-task-zh/)
 
-Every quarter, one investment team at an investment institution has to do something that sounds simple: evaluate the ESG performance of the companies in a fund portfolio.
+Imagine a recurring investment workflow that sounds simple: evaluate a large set of companies using their public sustainability-related disclosures.
 
-For each company, the portfolio manager has to read disclosure documents and map them against the fund’s internal assessment framework. Does the company report scope 3 emissions? Does it have a board-level sustainability committee? What do its supply-chain labor practices look like?
+For each company, an analyst has to find the relevant documents and map them against an assessment framework. Does the company report indirect emissions? Does it describe board-level oversight? What do its supply-chain labor practices look like?
 
 Find the right document. Read it. Score it. Move to the next company.
 
@@ -27,23 +27,21 @@ And that is only the generic list. Industry-specific disclosure adds another lay
 
 Different reporting frameworks mean companies report different things in different formats. No two companies organize their disclosures in quite the same way.
 
-She is good at this. But the portfolio holds thousands of companies.
+The method works for one company. The portfolio-scale version contains thousands.
 
-For each one, she visits the corporate website, opens dozens of tabs, follows links that look promising, saves PDFs, and still misses pages buried three clicks deep. Some companies put everything in one place. Others scatter disclosures across investor-relations pages, sustainability microsites, regional subdomains, and third-party reporting platforms.
+For each one, the analyst visits the corporate website, opens dozens of tabs, follows links that look promising, saves PDFs, and still misses pages buried three clicks deep. Some companies put everything in one place. Others scatter disclosures across investor-relations pages, sustainability microsites, regional subdomains, and third-party reporting platforms.
 
-Each company takes hours. And she knows she is still missing information.
+Each company can take hours, and the analyst still knows information may be missing.
 
 ## The Consistency Problem
 
 Then the real problem appears: not just scale, but consistency.
 
-Her colleagues evaluate the same company and arrive at different scores. Not because anyone is doing the job badly, but because they find different files on the same website. One person finds a modern slavery statement hidden under “Legal”; another does not. They interpret the same framework standard differently. For every analyst reading the same written guidance, “sufficient disclosure” means something slightly different.
-
-And, honestly, one person is doing the review on a Friday afternoon after a week of back-to-back meetings. Their condition is not ideal.
+Two analysts can evaluate the same company and arrive at different scores. Not because either is careless, but because they find different files on the same website and interpret the same written guidance slightly differently.
 
 The assessment reflects not only the company’s ESG performance, but also who did the work, what they happened to find, and what state they were in that day.
 
-Multiply that by 5,000 companies. Inconsistency compounds into noise and erodes the meaning of the entire evaluation. At that scale, thorough and consistent? Impossible.
+Multiply that across a large portfolio. Inconsistency compounds into noise and erodes the meaning of the entire evaluation. At that scale, being both thorough and consistent becomes nearly impossible.
 
 ## Meanwhile, Technology Headlines Tell Another Story
 
@@ -55,7 +53,7 @@ There are several layers to this narrative. At one end: “An LLM application is
 
 It sounds transformative. The demos look good. And this is exactly the sort of claim that changes management decisions.
 
-At that point, it is no longer just a technical debate. It becomes a business question. A manager sees the demo, reads the headlines, and in the same week may receive two kinds of sales calls.
+At that point, it is no longer just a technical debate. It becomes a business question. A manager sees the demo, reads the headlines, and hears two common proposals.
 
 The first comes from data vendors: “We already have all the ESG data: documents, disclosures, reports, all structured and scored. Why build infrastructure? Just buy the data.”
 
@@ -63,7 +61,7 @@ The second comes from analytics platforms: “We provide AI analysis on top of t
 
 Two pitches, two levels of the same question. The first challenges data collection. The second challenges everything built on top of the data.
 
-The answer to both questions hides in the details that demos do not show and vendors do not emphasize. The observations in this series come from practice: a production pipeline used for institutional investment decisions across thousands of companies. It uses AI where AI is genuinely strong, and deterministic engineering everywhere else.
+The answer to both questions hides in the details that demos do not show and vendors do not emphasize. The observations in this series come from building a production pipeline for a large investment workflow. It uses AI where AI is genuinely strong, and deterministic engineering everywhere else.
 
 Not “no AI.” Not “all AI.”
 
@@ -71,21 +69,21 @@ The right tool at each layer, and how we learned which tool belonged where.
 
 ## She Tried the Obvious Thing First
 
-The portfolio manager saw the same wave from her side. Vendors pitched AI-powered ESG platforms, automated analysis, and polished slides showing structured output generated from unstructured documents. The headlines reached her inbox too: agents, assistants, AI that reads reports for you.
+The people doing the assessment saw the same wave from their side: automated analysis, polished demonstrations, and assistants that promise to read reports for you.
 
 Complex tool configuration was too much friction. Even if it worked, how would the result be traced?
 
-But a chatbot she could open in a browser or desktop app? She could try that immediately.
+But a chatbot available in a browser or desktop app could be tested immediately.
 
-She opened an AI assistant, manually uploaded a sustainability report, and asked it to evaluate the company against the framework.
+An analyst uploaded a sustainability report and asked an AI assistant to evaluate the company against the framework.
 
 It was impressive. The large language model read the document, identified relevant disclosures, mapped them to standards, and produced structured output. For one company and one file, it felt like magic.
 
-She tried web search: “Find the latest climate transition plan for a large energy company.” The chatbot searched, found, and summarized. Impressive.
+The analyst tried web search: “Find the latest climate transition plan for a large energy company.” The chatbot searched, found, and summarized. Impressive.
 
-Then she tried to actually use it.
+Then came repeated use.
 
-## Six Problems, Six Weeks
+## Six Problems
 
 ### 1. Scale Breaks the Conversation Pattern
 
@@ -99,13 +97,13 @@ AI handles reasoning; humans handle administration. The bottleneck moves, but it
 
 ### 3. Model Choice Matters
 
-Different leading models give different assessments for the same document. Not wildly different, but different enough that switching models during a portfolio review introduces a new source of inconsistency, exactly the problem she is trying to remove. Sometimes performance also seems to degrade suddenly, with no obvious explanation.
+Different leading models give different assessments for the same document. Not wildly different, but different enough that switching models during a portfolio review introduces a new source of inconsistency, exactly the problem the workflow is trying to remove. Sometimes performance also seems to degrade suddenly, with no obvious explanation.
 
 ### 4. Web Search Retrieves Incomplete Data
 
 The chatbot finds the main sustainability report but misses the modern slavery statement, the climate disclosure hidden in investor relations, and biodiversity commitments on a regional subdomain. It retrieves what is easy to find, not what is complete.
 
-She is back where she started: important documents are missing, just behind a prettier interface.
+The workflow is back where it started: important documents are missing, just behind a prettier interface.
 
 ### 5. Hallucinated Content
 
@@ -115,9 +113,9 @@ For professional assessments that drive investment decisions, “mostly right”
 
 ### 6. Transparency and Auditability
 
-The fund’s investment committee asks: how was this assessment produced?
+The decision maker asks: how was this assessment produced?
 
-She cannot answer: “I asked a chatbot.”
+“I asked a chatbot” is not an adequate answer.
 
 Institutional investment decisions require an audit trail: which documents were reviewed, how each criterion was scored, and what evidence supports each judgment. A conversation in a chatbot does not naturally produce any of that. “AI did magic” is not a compliance answer.
 
@@ -134,14 +132,12 @@ As a systematic assessment tool at portfolio scale, the chatbot fails on the dim
 - Auditability
 - Reliability
 
-The portfolio manager realizes this is not a prompt problem. It is an engineering problem.
+The conclusion is that this is not a prompt problem. It is an engineering problem.
 
-She brings the requirement to the development team: can we build a pipeline that does this correctly?
+The requirement becomes: can a pipeline do this systematically and leave an auditable trail?
 
-Next: [Part 2 — From “Just Throw It at AI” to 7,400 Lines of Code](/blog/seven-layers-en/).
+Next: [Part 2 — Why One Classifier Became Seven Layers](/blog/seven-layers-en/).
 
 ---
 
-Chinese original: [第1篇：投资组合经理的不可能任务](/blog/impossible-task-zh/).
-
-Originally published externally: [source article](https://mp.weixin.qq.com/s/gXuULJQHxcrBQxLdmCtlbg).
+Chinese version: [read Part 1 in Chinese](/blog/impossible-task-zh/).

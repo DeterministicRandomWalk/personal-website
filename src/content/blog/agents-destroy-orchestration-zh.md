@@ -260,5 +260,3 @@ PDF 下载听起来很简单。点击链接。保存文件。八个字。
 下一篇：第 4 篇——诚实的对比：流水线 vs. 智能体，用数字说话。
 
 ---
-
-Originally published externally: [source article](https://mp.weixin.qq.com/s/Loi3JZwWARpm4BHlGVMRPA).

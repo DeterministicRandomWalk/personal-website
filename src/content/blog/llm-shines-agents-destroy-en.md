@@ -6,18 +6,18 @@ heroImage: '../../assets/series-03a-llm-shines-illustration.jpeg'
 lang: 'en'
 ---
 
-> Series: We built a pipeline with tens of thousands of lines of code. Why agents could not do it.
+> Series: What production AI needs beyond an impressive model.
 
 [Previous: Part 2.](/blog/seven-layers-en/)  
 [阅读中文版。](/blog/llm-shines-agents-destroy-zh/)
 
 Ambiguous judgments that rules cannot resolve are where LLMs shine. The other 90% does not need intelligence. It needs precision.
 
-The previous essay described the path from “just throw it at AI” to 7,400 lines of code. After months of iterative failure, a seven-layer classification architecture emerged. Even the “AI part” turned out to be 90% engineering. But that classification system is only the brain of the pipeline. The rest is the body that keeps it running.
+The previous essay described the path from “just throw it at AI” to a seven-layer classification architecture. After repeated failures, even the “AI part” turned out to be mostly engineering. But that classification system is only the brain of the pipeline. The rest is the body that keeps it running.
 
 We have talked about the brain. Now we need to talk about the body: the places where precision matters far more than intelligence.
 
-In short: whether a URL contains ESG content looks like a yes-or-no question. Across more than 30 countries, multiple languages, and wildly inconsistent website structures, it becomes a semantic judgment full of gray areas. Rules handle most cases, but there are always cases rules cannot cover. The LLM is the final fallback that completes the system.
+In short: whether a URL contains relevant disclosure looks like a yes-or-no question. Across multiple markets, languages, and wildly inconsistent website structures, it becomes a semantic judgment full of gray areas. Rules handle most cases, but there are always cases rules cannot cover. The LLM is the final fallback that completes the system.
 
 That is the exciting part.
 
@@ -27,7 +27,7 @@ These are solved problems expressed as code. If you can write an `if`, do not as
 
 ## Rules First, LLM as Fallback
 
-The previous essay covered link classification: deciding whether each URL is ESG content. Across more than 30 countries, multiple languages, and different URL structures, rules can cover part of the problem, and they should be used first. But there are always cases rules cannot handle. The LLM is the fallback.
+The previous essay covered link classification: deciding whether each URL contains relevant disclosure. Across multiple markets, languages, and different URL structures, rules can cover part of the problem, and they should be used first. But there are always cases rules cannot handle. The LLM is the fallback.
 
 Rules first. LLM as fallback.
 
@@ -49,7 +49,7 @@ Imagine a circle of knowledge. The center is mature, stable, well-known territor
 
 Move outward, and fewer people have walked the path. The solution becomes less certain: basic research, frontier product exploration, obscure failure modes only a handful of people have seen. LLMs can help, but replacing the human in one shot is hard.
 
-ESG collection is not rocket science, but it sits toward the outer side of that spectrum. It is not that nobody has done it. It is that each company’s website structure is a new patch of unknown territory. This is not a binary question of can or cannot. It is a spectrum of determinacy. Mature knowledge is easier to automate; frontier exploration still depends on humans.
+Corporate-disclosure collection is not rocket science, but it sits toward the outer side of that spectrum. It is not that nobody has done it. It is that each company’s website structure is a new patch of unknown territory. This is not a binary question of can or cannot. It is a spectrum of determinacy. Mature knowledge is easier to automate; frontier exploration still depends on humans.
 
 The interesting part is that once a frontier solution is discovered and shared, it quickly becomes standardized knowledge. LLMs can copy it without difficulty. Today’s frontier becomes tomorrow’s training data.
 
@@ -57,7 +57,7 @@ The interesting part is that once a frontier solution is discovered and shared, 
 
 LLMs are useful beyond link classification. The previous essay focused on whether each URL is ESG content, the seven-layer classification system. There is a higher-level problem too: domain-level judgment.
 
-A company’s ESG content may be scattered across multiple subdomains or even entirely different domains. As the collector extracts links, it continuously discovers new domains. Some of them may contain critical ESG reports. Missing one domain can mean losing an entire disclosure.
+A company’s disclosures may be scattered across multiple subdomains or even entirely different domains. As the collector extracts links, it continuously discovers new domains. Some may contain critical reports. Missing one domain can mean losing an entire disclosure.
 
 General-purpose crawlers usually do not think about this. You give them an entry URL, and they crawl under that domain. They do not proactively discover that key information may live on a different domain you did not know about in advance. So every newly discovered domain has to be judged: is it worth collecting?
 
@@ -69,9 +69,9 @@ But the LLM is not asked, “Does this domain contain ESG content?” It is aske
 
 When the pattern cannot decide, the LLM can look at a sample page and judge.
 
-These decisions depend on what is actually on the page. The pipeline fetches one sample page, truncates it to under 5,000 words, which is plenty for a domain-level decision, and sends it to the LLM together with the company name.
+These decisions depend on what is actually on the page. The pipeline fetches a bounded sample, trims it to the context needed for a domain-level decision, and sends it to the LLM with the company name.
 
-The instruction is explicit: prefer inclusion over omission. Missing a relevant subdomain can lose disclosure data. Including an irrelevant domain only costs extra collection time.
+The instruction is explicit: prefer inclusion over omission. Missing a relevant subdomain can lose disclosure data; including an irrelevant one mainly costs collection time.
 
 The difference from an agentic approach is not who calls the LLM. It is who decides what to ask, who to ask, and what to do with the answer. The pipeline discovers domains at fixed process points, prepares the context, calls the LLM, and then follows deterministic branches based on the result. The LLM does not decide on a whim to go exploring subdomains.
 
@@ -81,11 +81,7 @@ Use intelligence where intelligence is needed. Use control everywhere else.
 
 ## To Be Clear
 
-This is not LLM skepticism. The collector’s output feeds a completely separate downstream LLM pipeline: ESG analysis, risk assessment, portfolio screening. The core judgment steps depend on LLMs.
-
-That system is large too, and the conclusion is the same: LLMs are excellent at judgment and poor at process control. Give judgment to the LLM. Give flow control to code. This is true for the collector, and it is true for the downstream pipeline as well.
-
-The details of that system deserve their own series. I mention it here only to be clear: this is not anti-AI. It is the opposite. We rely heavily on AI. We just put it in the right place.
+This is not LLM skepticism. The collected material can feed downstream systems for analysis, risk assessment, and screening, where semantic judgment genuinely matters. The conclusion is the same: give judgment to the LLM and flow control to code. This is not anti-AI. It is an attempt to put AI where it creates the most value.
 
 ## The 90% AI Does Not Help With
 
@@ -104,15 +100,7 @@ For each company, the collector:
 7. Defers PDF downloads until page collection is complete.
 8. Loops until there are no new links.
 
-That list looks tidy. But the framework was not designed in advance. It was built over nearly a year, one failure at a time. Each item corresponds to a real failure. The order in which they were added is the order in which things broke.
-
-Small companies produce dozens of ESG pages. Large multinationals produce thousands. Multiply that by 5,000 companies, and the scale becomes obvious.
-
-The encouraging part is that after a long period of tuning, the pipeline can cover almost all ESG information for almost all companies with high confidence. Early in the project, a colleague with a long computer science background and deep investment-domain experience heard the idea of building an in-house collector and shook his head: is this not basically a vertical mini search engine?
-
-His preference was to buy the data. But after several attempts, external data never reached the required level. That is why the system ultimately had to be built.
-
-Every line in the list above comes from repeated real failures. Here are a few.
+That list looks tidy, but the framework was not designed in advance. It emerged over repeated production iterations, one failure mode at a time. Small websites produce dozens of relevant pages; large ones produce thousands. At portfolio scale, every missing guardrail becomes expensive. Here are a few examples.
 
 ## Preflight Sniffing
 
@@ -132,7 +120,7 @@ The judgment is made once. Later URLs reuse the conclusion.
 
 The fallback has two levels: the standard headless browser is fast, cheap, and works on most sites; the full local browser is slower and more expensive, but closer to a real user. URLs that still fail in batch processing get one final chance: retry page by page through the full local browser.
 
-Test once, remember the result, reuse it for thousands of URLs. That is orchestration.
+Test once, remember the result, and reuse it. That is orchestration.
 
 ## Rate Limiting
 
@@ -142,17 +130,14 @@ All of this orchestration is solved behavior expressed as code:
 
 ```text
 Adaptive batches:
-PDF success rate >= threshold -> expand 1.3x
-Otherwise -> shrink 0.7x
-
-Page success rate >= threshold -> expand 1.5x
-Otherwise -> shrink 0.6x
+Success rate >= threshold -> expand
+Otherwise -> shrink
 
 Browser fallback:
 Standard headless browser -> full local browser
 
 Browser lifecycle:
-Every 20 URLs -> clean up tabs
+Periodically clean up tabs
 Health check failure -> restart
 
 Rate limiting:
@@ -184,6 +169,4 @@ Next: [Part 3B — Where LLMs Shine, and the 90% Agents Would Destroy](/blog/age
 
 ---
 
-Chinese original: [第3A篇：LLM 闪耀的地方——以及智能体会毁掉的 90%（上）](/blog/llm-shines-agents-destroy-zh/).
-
-Originally published externally: [source article](https://mp.weixin.qq.com/s/NznWqkryTsSSrGt6aLKNJw).
+Chinese version: [read Part 3A in Chinese](/blog/llm-shines-agents-destroy-zh/).
