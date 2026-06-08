@@ -144,3 +144,5 @@
   - English: `/blog/honest-comparison-en/`
 - Added the provided Part 4 illustration as `src/assets/series-04-honest-comparison-illustration.jpeg` and removed its embedded device and capture metadata.
 - Reframed Part 4's numerical comparison as an explicit order-of-magnitude model rather than publishing internal billing claims, exact workplace scale, identifiable incidents, named organizations, products, companies, or people.
+- Restored the Chinese Part 4 close to the author's original full-detail version after manual review. Kept its illustrative figures and named public tools, while generalizing only the cloud provider and the country/industry identity of one parameter-loop incident.
+- Constrained article tables to their content width so detailed comparison tables scroll internally instead of widening the page on mobile.
