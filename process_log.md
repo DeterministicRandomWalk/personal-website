@@ -138,3 +138,9 @@
 - Removed a specific internal-team reference from the future Part 11 description in both Chinese and English.
 - Removed external source links from all published bilingual posts to reduce cross-platform identity correlation risk.
 - Re-edited the English series as an independent public edition: preserved the technical arguments and failure mechanisms while generalizing exact project scale, organizational context, timelines, internal incidents, colleague anecdotes, and operational constants that could identify a workplace or team.
+- Added a permanent publishing rule requiring every future English post to be independently edited as a technically substantive, de-identified public edition rather than a direct translation.
+- Added Part 4 as linked Chinese and independently edited English posts.
+  - Chinese: `/blog/honest-comparison-zh/`
+  - English: `/blog/honest-comparison-en/`
+- Added the provided Part 4 illustration as `src/assets/series-04-honest-comparison-illustration.jpeg` and removed its embedded device and capture metadata.
+- Reframed Part 4's numerical comparison as an explicit order-of-magnitude model rather than publishing internal billing claims, exact workplace scale, identifiable incidents, named organizations, products, companies, or people.

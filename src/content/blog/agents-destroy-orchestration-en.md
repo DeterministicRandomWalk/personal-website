@@ -245,7 +245,7 @@ That gap will shrink over time. AI is indeed eating the boundary of human knowle
 
 After all this, where are the numbers? For the same task, how far apart are the pipeline and agents?
 
-Next: Part 4 — An Honest Comparison: Pipeline vs. Agents, by the Numbers.
+Next: [Part 4 — An Honest Comparison.](/blog/honest-comparison-en/)
 
 ---
 

@@ -31,4 +31,15 @@
 - Present potentially uncomfortable passages to the user for manual review and approval before publishing.
 - Do not publish the internal review checklist, scan queries, command output, or unpublished findings. Public documentation may state the principle, but must not expose the internal review mechanics.
 
+## English public edition
+
+- Treat every English blog post as an independently edited public edition, not a sentence-by-sentence translation of the Chinese post.
+- Preserve the technical argument, mechanisms, useful examples, and sharp conclusions.
+- Generalize or remove identifying project coordinates, including exact company counts, codebase size, country coverage, operational thresholds, costs, dates, development duration, and distinctive timelines.
+- Generalize organizational context, team structure, internal workflows, colleague anecdotes, vendor interactions, incidents, purchasing decisions, and legal, compliance, finance, or IT involvement.
+- Do not combine enough workplace, project, role, scale, and timing details for a colleague to confidently identify the author, employer, team, or system.
+- Prefer portable formulations such as `portfolio scale`, `a large company universe`, `multiple markets and languages`, `repeated production iterations`, and `bounded retries`.
+- The English edition should remain substantive and technically useful. Privacy editing must remove identifying coordinates rather than flattening the argument into generic commentary.
+- Before publishing a new English post, perform a separate re-identification review and present any remaining high-risk passages to the user for manual approval.
+
 ## Let me know each step and ask for my conformation. Explain each step
