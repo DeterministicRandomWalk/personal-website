@@ -146,3 +146,24 @@
 - Reframed Part 4's numerical comparison as an explicit order-of-magnitude model rather than publishing internal billing claims, exact workplace scale, identifiable incidents, named organizations, products, companies, or people.
 - Restored the Chinese Part 4 close to the author's original full-detail version after manual review. Kept its illustrative figures and named public tools, while generalizing only the cloud provider and the country/industry identity of one parameter-loop incident.
 - Constrained article tables to their content width so detailed comparison tables scroll internally instead of widening the page on mobile.
+- Recalibrated the English privacy policy after the previous pass removed too much detail.
+  - English posts now preserve the author's structure, narrative, technical figures, public examples, and sentence-level argument.
+  - Privacy edits are limited to traceable identifiers and phrases, including workplace or department names, identifiable colleague details or quotations, country-and-industry incident combinations, private vendors or clients, and cloud-provider names.
+- Restored English Parts 0 through 3B close to their original detailed versions while keeping external source links removed and retaining only narrow anonymization edits.
+- Rebuilt English Part 4 as a full-detail version of the article rather than a shortened public abstract.
+  - Preserved the cost tables, scale estimates, reliability calculation, public tool examples, and engineering details.
+  - Kept the cloud provider unnamed and described the parameter-loop incident only as occurring on a large enterprise website.
+- Fixed the article container box sizing so long, table-heavy posts remain within the mobile viewport while their tables and code blocks scroll internally.
+- Adjusted the mobile navigation to use a compact two-row layout, preventing the site title and four internal links from overflowing narrow screens.
+
+## 2026-06-11
+
+- Verified the research claims for Part 5A against current primary sources from METR, Anthropic, and the cited arXiv paper.
+- Corrected the METR figures to the May 2026 v1.1 estimates and added METR's stated benchmark-scope and uncertainty caveats.
+- Preserved the article's central reliability-cliff argument while making clear that time horizon does not directly equal hours of a real engineer's job replaced.
+- Added Part 5A as linked Chinese and English posts.
+  - Chinese: `/blog/research-data-zh/`
+  - English: `/blog/research-data-en/`
+- Kept the English version close to the Chinese article's structure, detail, examples, and tone.
+- Reused the already sanitized homepage artwork for Part 5A rather than creating a duplicate image file.
+- Linked Part 4 forward to Part 5A and added Part 5A to the homepage and bilingual blog ordering.

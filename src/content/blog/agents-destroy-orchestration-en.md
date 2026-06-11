@@ -6,7 +6,7 @@ heroImage: '../../assets/series-03b-agents-destroy-illustration.jpeg'
 lang: 'en'
 ---
 
-> Series: What production AI needs beyond an impressive model.
+> Series: We built a pipeline with tens of thousands of lines of code. Why agents could not do it.
 
 [Previous: Part 3A.](/blog/llm-shines-agents-destroy-en/)  
 [阅读中文版。](/blog/agents-destroy-orchestration-zh/)
@@ -57,7 +57,7 @@ The agent is the interface. Code is the engine.
 
 That is exactly the composition model this series argues for.
 
-No single library gets link extraction right across the full diversity of corporate websites. The answer is accumulated fixes, each one earned through a real failure.
+No single library gets link extraction right across thousands of corporate websites. The answer is hundreds of fixes, each one earned through a real failure.
 
 ## Problem 2: Query Parameters
 
@@ -80,7 +80,7 @@ First reaction: remove all query parameters. Clean URLs, no duplicates.
 
 Immediate failure. `?lang=fr` may be the French version of a report that has no English equivalent. `?year=2024` may be the only path to the current disclosure. Remove everything and you lose files.
 
-Second reaction: keep everything. Now a manageable URL set multiplies or explodes forever. Every parameter combination is technically “new,” and the collector enters an infinite loop.
+Second reaction: keep everything. Now 1,000 URLs become 10,000, or explode forever. Every parameter combination is technically “new,” and the collector enters an infinite loop.
 
 The real answer: treat parameter classes differently.
 
@@ -88,13 +88,21 @@ The pipeline maintains a two-layer system. First, a fixed blocklist of useless p
 
 Then a heuristic classifier groups the remaining parameters: pagination, sorting, display settings, search facets, regional settings, resource IDs. Pagination and sorting are removed because they generate loops. Regional parameters and resource IDs are kept because they point to different content.
 
-This classification was not designed up front. It was forced by observing collection jobs trapped in parameter loops. Different parameter orderings generated apparently new URLs that pointed to the same page. Every duplicate could trigger another classification call. It was like walking through a revolving door while believing every rotation led somewhere new.
+This classification was not designed up front. It was forced by a cloud billing alert.
+
+One day an over-budget email arrived: LLM call costs had spiked far beyond expectations. Investigation showed that the collection engine was stuck in a loop on a large enterprise website. Different combinations of query parameters generated thousands of “different” URLs. `?sort=date&page=3` and `?page=3&sort=date` were technically two URLs but pointed to the same page.
+
+The collector did not know. The classifier did not know. Every “new” URL triggered another LLM call, and the job kept running for days. It was like someone walking through a revolving door, convinced that every rotation led to a new place.
+
+The bill kept growing.
+
+The funny part: the bug was found by a billing email, not by the logging system.
 
 An agent can easily see two URLs with different parameter order and treat them as different pages. It follows each variant and burns the token budget on duplicates it cannot recognize. By the time it “realizes” it is looping, if it realizes at all, the budget is gone.
 
 “Which parameters matter?” sounds like a one-sentence question. In practice, it is a classification system accumulated from real failures.
 
-The difference between a bounded collection and an infinite explosion is one layer of parameter normalization. Getting that layer right requires iteration.
+The difference between 1,000 URLs and infinite explosion is one layer of parameter normalization. The difference between doing it right and doing it wrong is weeks of iteration.
 
 ## Problem 3: Knowing When to Stop
 
@@ -102,21 +110,21 @@ You are at a buffet. The first dishes are what you came for. Then you see desser
 
 Agents do not know when to stop.
 
-Every corporate website can have hundreds of news articles. Many mention `sustainability` or `climate`, and are technically ESG-related. But once the core reports, policies, and disclosures have been collected, hundreds more news articles are just paper on the floor. The plate is already full.
+Every corporate website has hundreds of news articles. Many mention `sustainability` or `climate`, and are technically ESG-related. But once the core reports, policies, and disclosures have been collected, another 500 news articles are just paper on the floor. The plate is already full.
 
-This took repeated failures to learn. Early versions of the pipeline behaved like a new intern, putting everything into the bag regardless of value. A large website produced an enormous archive of news pages, press releases, and blog posts. The disk filled with noise. Downstream analysis was drowned in low-value content.
+It took weeks to learn this. Early versions of the pipeline behaved like a new intern, putting everything into the bag regardless of value. One large multinational produced thousands of news pages, press releases, and blog posts. The disk filled with noise. Downstream analysis was drowned in low-value content.
 
-So the pipeline learned budgets. News pages have a bounded allowance written directly into code. Core disclosures receive priority. PDF downloads are deferred until page collection is complete because pages produce new links and PDFs do not. Downloading a large report during collection blocks the link-discovery loop.
+So the pipeline learned budgets. News pages have a hard cap of 200, written directly into code. Core ESG content — real reports, policies, and disclosures — is not capped. PDF downloads are deferred until page collection is complete because pages produce new links and PDFs do not. Downloading a 200-page report during collection blocks the link-discovery loop.
 
 Adaptive thresholds tighten when signals are plentiful and loosen when signals are scarce. The logic is simple: when good content is easy to find, be selective; when signals dry up, cast a wider net.
 
 None of this was designed in advance. Each rule came from watching the collector overspend on news archives, stall on huge PDFs, over-explore multinationals, and under-explore small companies.
 
-An agent without explicit limits runs until the budget is gone. No cap, no deferral strategy, no adaptive tightening. Now imagine unconstrained collection across an entire portfolio.
+An agent runs until the budget is gone. No cap, no deferral strategy, no adaptive tightening. People already complain that personal assistant tasks are expensive. Now imagine unconstrained collection across 5,000 corporate websites.
 
-Human analysts know when to stop. The pipeline encodes the same principle: enough news is enough; get the formal reports first.
+Human analysts know when to stop. The pipeline learned from observing analysts: 200 news articles are enough; get the formal reports first.
 
-The pipeline writes those human-derived rules into code and applies them consistently across the whole company universe.
+The interesting part is that humans need only a few dozen websites to form this intuition. The pipeline writes those human-derived rules into code and copies them across 5,000 companies without loss.
 
 “When is enough?” is an engineering judgment. The pipeline hard-codes it. An agent may not even notice that the question exists.
 
@@ -148,7 +156,7 @@ Then there is the download itself. Each failure mode deserves its own bug report
 4. Wrong `Content-Type`: the server says “webpage,” but the response is really a PDF. The browser believes the server.
 5. PDF gates: enter an email, accept terms, complete a human challenge. The pipeline needs gate detection, pattern matching, fallback strategy, and logs for manual review when it cannot proceed.
 
-Even after a successful download, saving can fail. Another process may lock a file halfway through writing. The pipeline uses atomic file saves: write to a temporary file, confirm it is fully written, then rename it to the final filename. If renaming fails, retry within a strict bound. Without that mechanism, you get half-written corrupted PDFs.
+Even after a successful download, saving can fail. Security software on a production machine may lock a file halfway through writing. The pipeline uses atomic file saves: write to a temporary file, confirm it is fully written, then rename it to the final filename. If renaming fails, retry up to five times. Without that mechanism, you get half-written corrupted PDFs.
 
 None of this is intelligence. It is engineering ground out of hundreds of edge cases.
 
@@ -172,13 +180,13 @@ Early versions of the pipeline did not know this. The strategy was: see a PDF, d
 
 After a few iterations, the problem appeared.
 
-Some company websites contain hundreds of PDFs: annual reports, quarterly reports, press releases, investor presentations, policy documents, and governance frameworks. The classifier is designed to prefer recall over omission, so many pass the relevance filter. Before the first few page-collection rounds finish, the download queue can consume the budget.
+Some company websites contain hundreds of PDFs: annual reports, quarterly reports, press releases, investor presentations, policy documents, governance frameworks. The classifier is designed to prefer recall over omission, so many of them pass the ESG filter. Before the first few page-collection rounds even finish, more than 500 PDFs have already been downloaded and the budget is gone.
 
 Worse, PDFs are dead ends.
 
 After collecting a webpage, you can extract dozens of new links and feed them into the next classification round. That is the core engine of discovery. PDFs do not do that. Once a PDF is downloaded, it is done. It does not bring back new URLs.
 
-Stopping midway through collection to download a large report is like stopping halfway through exploring a city to move furniture. You do not yet understand the city layout, and the truck is blocking the road. Page collection, the part that actually discovers new links, waits. One large PDF occupies connection slots and bandwidth while other requests queue.
+Stopping midway through collection to download a 200-page report is like stopping halfway through exploring a city to move furniture. You do not yet understand the city layout, and the truck is blocking the road. Page collection, the part that actually discovers new links, waits. One large PDF occupies connection slots and bandwidth while other requests queue.
 
 Would an agent think of this?
 
@@ -190,7 +198,7 @@ Second, deferral enables reordering. If you download a PDF the moment you find i
 
 Third, batch PDF download needs its own strategy. PDF download failure modes are different from page collection failure modes, so mixing them interferes with both. Deferral lets PDFs use specialized concurrency, retry, and timeout settings without disrupting page collection.
 
-Agents do not naturally have a concept of deferral. They see a PDF link and try to download it because the instruction is to collect relevant content. They do not know that downloading it now means giving up opportunities to discover more links. They do not know that only a small fraction of the PDFs may matter, or that saving them until the end enables reordering.
+Agents do not naturally have a concept of deferral. They see a PDF link and try to download it because the instruction is “collect ESG content,” and this PDF looks like ESG content. They do not know that downloading it now means giving up opportunities to discover more links. They do not know that only 50 out of 500 PDFs may matter. They do not know that saving PDFs until the end enables reordering.
 
 “Collect pages first, then download PDFs.” Six words. Behind them are multiple iterations of pain.
 
@@ -198,9 +206,13 @@ Deferral is not laziness. It is doing the right thing in the right order.
 
 ## Problem 6: robots.txt
 
-The first five problems are engineering problems. This one is different: it is a policy constraint. It has nothing to do with code quality or model capability. A production collector needs a clear compliance floor.
+The first five problems are engineering problems. This one is different: it is an organizational constraint. It has nothing to do with code quality or model capability. If legal says no, the answer is no.
 
-One such floor is respecting `robots.txt`, the text file at the root of a website that tells automated programs which paths they may access. If a site explicitly says “do not go there,” the collector does not go there.
+At some point, compliance and IT review entered the project. The question was direct: is this legal? Does automated access to corporate websites create legal risk?
+
+In practice, the collector behaves much like a human analyst browsing manually: fixed per-domain rate limits, no faster than ordinary browser clicks in many cases. It does not make violent request bursts, bypass authentication, or impersonate users. The purpose is analysis of public ESG information, not competitive intelligence or data resale. That can be explained.
+
+But IT had one hard requirement: respect `robots.txt`. `robots.txt` is a text file at the root of a website that tells automated programs which paths they may access and which paths they should not. No matter how gentle the collector is, if a site explicitly says “do not go there,” the collector does not go there. This is not a technical preference. It is a compliance floor.
 
 So it became a new engineering problem.
 
@@ -218,7 +230,7 @@ An agent will not reliably decide to check `robots.txt` on its own. Even if the 
 
 More importantly, compliance is not a “try your best” task. It is mandatory. Asking a probabilistic system to handle a zero-tolerance constraint is already the contradiction.
 
-The relevant question is not how smart the model is. It is whether the system can prove every request was checked against `robots.txt`. A deterministic pipeline can provide that evidence.
+Legal and IT do not care how smart the model is. They care whether you can prove every request was checked against `robots.txt`. The pipeline can. The agent cannot.
 
 Compliance constraints do not need intelligence. They need identical, auditable, zero-omission execution every time.
 
@@ -237,7 +249,7 @@ Remember the apartment metaphor? Signing the contract is the big event, but what
 
 That is the 90%. It has already been solved, and it does not need to be solved again tomorrow.
 
-AI strategy often splits into two engineering philosophies. One treats AI as a general substrate: build the infrastructure, wrap everything, and let a general tool handle the rest. The other treats human judgment, domain experience, and accumulated failure knowledge as central.
+It is understandable that people outside the system believe agents can solve everything. But even within development teams, AI strategy often splits into two camps. One camp treats AI as a general substrate: build the infrastructure, wrap everything, and let the general tool handle the rest. The other camp still sees human judgment as central and believes the investment should go into domain experience and frontier knowledge. This is not a disagreement between outsiders and insiders. It is a disagreement between engineering philosophies.
 
 Choosing the agent route implies a belief that general tools can handle everything, effectively betting that general intelligence has already arrived. Choosing the custom pipeline route acknowledges that human experience, frontier knowledge, and forms of information transfer not yet fully captured by language are still irreplaceable today.
 
@@ -245,8 +257,8 @@ That gap will shrink over time. AI is indeed eating the boundary of human knowle
 
 After all this, where are the numbers? For the same task, how far apart are the pipeline and agents?
 
-Next: [Part 4 — An Honest Comparison.](/blog/honest-comparison-en/)
+Next: [Part 4 — An Honest Comparison: Pipeline vs. Agents, by the Numbers](/blog/honest-comparison-en/).
 
 ---
 
-Chinese version: [read Part 3B in Chinese](/blog/agents-destroy-orchestration-zh/).
+Chinese original: [第3B篇：LLM 闪耀的地方——以及智能体会毁掉的 90%（下）](/blog/agents-destroy-orchestration-zh/).

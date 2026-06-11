@@ -33,13 +33,11 @@
 
 ## English public edition
 
-- Treat every English blog post as an independently edited public edition, not a sentence-by-sentence translation of the Chinese post.
-- Preserve the technical argument, mechanisms, useful examples, and sharp conclusions.
-- Generalize or remove identifying project coordinates, including exact company counts, codebase size, country coverage, operational thresholds, costs, dates, development duration, and distinctive timelines.
-- Generalize organizational context, team structure, internal workflows, colleague anecdotes, vendor interactions, incidents, purchasing decisions, and legal, compliance, finance, or IT involvement.
-- Do not combine enough workplace, project, role, scale, and timing details for a colleague to confidently identify the author, employer, team, or system.
-- Prefer portable formulations such as `portfolio scale`, `a large company universe`, `multiple markets and languages`, `repeated production iterations`, and `bounded retries`.
-- The English edition should remain substantive and technically useful. Privacy editing must remove identifying coordinates rather than flattening the argument into generic commentary.
-- Before publishing a new English post, perform a separate re-identification review and present any remaining high-risk passages to the user for manual approval.
+- Keep the English blog posts close to the author's original argument, structure, level of detail, numbers, examples, and sentence rhythm.
+- Do not structurally rewrite, summarize, flatten, or turn English posts into abstract public editions unless the user explicitly asks for that.
+- Privacy editing should be keyword-level and phrase-level by default: replace only traceable identifiers such as real employer names, department/team/client identifiers, colleague names, identifiable quotes, specific countries tied to workplace incidents, internal project names, account names, cloud-provider names, and non-public vendor/client details.
+- Preserve illustrative technical numbers, public technical concepts, public tools/frameworks/models, and public company examples when they are part of the argument and not tied to the author's workplace identity.
+- For colleague or stakeholder anecdotes, keep the point but remove combinations of role, team, seniority, country, timing, project stage, distinctive wording, and background that could let the person identify themselves.
+- Before publishing a new English post, perform a separate re-identification review focused on traceable words/phrases and present any remaining high-risk passages to the user for manual approval.
 
 ## Let me know each step and ask for my conformation. Explain each step

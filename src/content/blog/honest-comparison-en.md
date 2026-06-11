@@ -1,145 +1,221 @@
 ---
-title: 'Part 4: An Honest Comparison'
-description: 'A production pipeline and a general-purpose agent compared on cost, completeness, reproducibility, and compounding failure.'
+title: 'Part 4: An Honest Comparison — Pipeline vs. Agents, by the Numbers'
+description: 'A side-by-side comparison of pipelines and agents: cost, speed, completeness, debuggability, and how nondeterminism compounds at scale.'
 pubDate: '2026-06-08T12:00:00Z'
 heroImage: '../../assets/series-04-honest-comparison-illustration.jpeg'
 lang: 'en'
 ---
 
-> Series: What production AI needs beyond an impressive model.
+> Series: We built a pipeline with tens of thousands of lines of code. Why agents could not do it.
 
-[Previous: Part 3B.](/blog/agents-destroy-orchestration-en/)  
+[Previous: Part 3B — Six “Simple” Problems That Break Agents.](/blog/agents-destroy-orchestration-en/)
+
 [阅读中文版。](/blog/honest-comparison-zh/)
 
-The same task can cost a deterministic pipeline one unit and a general-purpose agent tens of units, or more, if the agent completes it at all.
+The same task costs a pipeline a couple of dollars and an agent hundreds — if the agent finishes at all.
 
-The previous essays explained how the system acquired its layers: why classification needs context, why LLMs belong in the ambiguous semantic remainder, and why extraction, normalization, stopping rules, PDF handling, state, and compliance need deterministic control.
+The previous essay covered six problems that look simple: link extraction, query parameters, stopping rules, PDF handling, PDF deferral, and `robots.txt` compliance. Each one looks easy from the outside and breaks immediately on real websites. The pipeline writes the solution into code and keeps it.
 
-This essay puts the two approaches side by side.
+The first three essays told the story: how the classifier grew seven layers (Part 2), where LLMs are irreplaceable in the 10% that needs semantic judgment (Part 3A), and how six “simple problems” become production nightmares (Part 3B).
 
-The figures below are an order-of-magnitude model, not a vendor quote or a universal benchmark. The agent is given favorable assumptions: batching, a capable model, a large context window, and access to browser tools. The comparison is therefore not between a careful pipeline and a deliberately naive agent.
+This essay does one thing: put the two approaches side by side and compare the numbers.
 
-## The Cost of the Brain
+Earlier essays used a brain-and-body metaphor for the pipeline. Classification is the brain. Orchestration is the body. LLM tokens are food. The human brain is only about 2% of body weight but consumes roughly 20% of its energy. The pipeline has a similar shape: the 10% classification layer consumes most of the LLM cost.
 
-Keyword scoring, URL-tree analysis, score inheritance, document-name signals, and iterative caches remove clear cases before an LLM is called.
+The problem is that in the agent approach, you have to feed not only the brain but every muscle in the body. And the two systems eat differently. The pipeline is disciplined: it controls the diet and counts every calorie. The agent binge-eats: it consumes context whenever it feels hungry and does not know when to put down the fork.
 
-| Cost dimension | Deterministic pipeline | General-purpose agent |
+## Feeding the Brain
+
+Part 2 described the seven-layer classification architecture: four-level keyword scoring, domain prefix trees, score inheritance, eleven-level PDF scoring, and iterative caches. Before anything reaches the LLM, those engineering layers filter out 80–90% of URLs.
+
+| Cost item | Deterministic pipeline | Agent, best case |
 | :-- | :-- | :-- |
-| Model input | Ambiguous remainder after filtering | Broad raw candidate set plus context |
-| First pass | Small and bounded | Grows with website size |
-| Later passes | Reuses path and classification memory | Often pays for context again |
-| Model responsibility | Semantic judgment | Judgment, exploration, and control |
-| Relative cost | 1× baseline | Often tens of times higher |
+| Material sent to the LLM | 30–50 ambiguous groups after six filtering layers | Hundreds to hundreds of thousands of raw URLs |
+| First-round tokens | About 5–15K, ambiguous items only | Hundreds of thousands to millions |
+| Second-round tokens | About 70% saved through iterative caching | Starts over and pays the full cost again |
+| Third-round tokens | About 90% saved | Pays the full cost again |
+| Classification cost | About $0.10–0.30 per company | Starts around $5 per company, with no clear ceiling |
 
-The important difference is what determines model cost. In the pipeline, cost follows ambiguity. In the agent, cost tends to follow the amount of material encountered.
+Why such a large difference? Before the LLM speaks, the pipeline has already handled most URLs through the domain prefix tree, score inheritance, and scoring rules. Only the genuinely ambiguous remainder needs semantic judgment.
 
-A large website may expose thousands of candidate links, but only a small subset should require semantic judgment. Sending everything to the model is not intelligence. It is failure to separate known behavior from unknown meaning.
+The agent does not have those filtering layers. It has to push all URLs, together with page context, into the model and classify them by force.
 
-## The Cost of the Body
+One clarification: the agent column assumes a reasonably intelligent implementation — batched URLs, a large context window, and a strong model. This is not the naive “one model call per URL” version. Even with those favorable assumptions, classification alone starts tens of times more expensive.
 
-Classification is only the brain. The body is orchestration: extraction, deduplication, query normalization, stopping, PDF scheduling, browser fallback, state management, and compliance checks.
+A small company may expose a few hundred URLs. A multinational group may expose tens or even hundreds of thousands. Agent cost grows roughly with URL count. The pipeline’s LLM cost stays almost flat because ambiguity, not volume, determines how much reaches the model.
 
-| Stage | Deterministic pipeline | General-purpose agent |
+And remember: this table compares only the brain, the cleverest 10% of the pipeline — deciding what is ESG content and what is not.
+
+The other 90% is the physical work described in Part 3B: link extraction, parameter normalization, stopping rules, PDF handling, deferral, and `robots.txt` compliance. In the pipeline, that is deterministic code with close to zero marginal model cost. If an agent also has to cover that 90%, assuming it can, every part requires more LLM calls to “think.”
+
+The full-process table makes the gap harder to ignore.
+
+## Feeding the Body
+
+The brain has eaten. The body is still hungry. The six problems from Part 3B are the body. The pipeline’s body runs on deterministic code and consumes no tokens. In an agent, every muscle needs to be fed through the LLM.
+
+| Stage | Pipeline | Agent |
 | :-- | :-- | :-- |
-| Link extraction | Fixed parsers and normalization | Tool calls plus runtime judgment |
-| Query parameters | Rules prevent duplication and loops | Missing rules can create unbounded exploration |
-| Stopping | Explicit budgets and priorities | “More content exists” keeps the task alive |
-| PDF handling | Specialized download and verification | Each failure creates another reasoning loop |
-| Deferral | Pages first, documents later | Arrival order often becomes priority |
-| Browser fallback | Test, record, and reuse | Repeated trial and error |
-| Compliance | Deterministic pre-request checks | Constraints must be reinterpreted during each run |
+| Link extraction and deduplication | Deterministic code, about $0 | LLM judgment about deduplication, about $1–3 |
+| Query-parameter normalization | Rule engine, about $0 | Skip it and risk loops; do it and incur model cost |
+| Stopping rules | Hard-coded budgets, about $0 | No natural ceiling; runs until the budget is gone |
+| PDF download and retries | Deterministic code, about $0 | Every failure requires another LLM decision |
+| PDF deferral and ordering | Deterministic scheduling, about $0 | No built-in concept of deferral |
+| `robots.txt` compliance | Deterministic prefilter, about $0 | Reinterpreted on every run |
+| Classification | $0.10–0.30 | Starts around $5, with no clear ceiling |
+| Browser scheduling and bot defenses | Preflight plus fallback cascade, about $0.20 | Independent judgment for each page |
+| **Total per company** | **$0.50–2.00** | **$50–200+** |
 
-These actions consume compute in a pipeline, but they do not need fresh model judgment. Their behavior is stable and their marginal cost is predictable.
+More than 90% of the pipeline’s $0.50–2.00 is cloud compute and browser resource cost. The LLM is a small part. The agent’s $50–200+ estimate is still optimistic: it assumes no parameter loop, no silent PDF failure, and no endless collection of news pages.
 
-An agentic implementation repeatedly turns bodily motion into thought. A failure creates another observation, another context update, another tool call, and another decision. Cost spreads along the failure path.
+The query-parameter loop on a large enterprise website described in Part 3B burned for several days in a single task. Its LLM-call cost exceeded the rest of the tasks combined.
 
-If the pipeline is normalized to `1×`, an otherwise capable agent without the specialized engineering layers can plausibly land one or two orders of magnitude higher. The exact multiplier is less important than the mechanism: repeated context, browser interaction, recovery, and rediscovery.
+Now multiply by 5,000 companies:
 
-## Incompleteness Is More Expensive Than Tokens
+| Portfolio scale | Pipeline | Agent |
+| :-- | :-- | :-- |
+| Total cost for 5,000 companies | $2,500–10,000 | $250,000–1,000,000+ |
+| Total time | 1–2 weeks in parallel | Months, if it finishes |
 
-The visible bill is not the main risk.
+These numbers are not invented from nowhere. The pipeline order of magnitude comes from actual cloud-provider bills. The agent estimate extrapolates reasonably from the failure modes in Part 3B: query-parameter loops, silent PDF failures, and unbounded news collection.
 
-A deterministic pipeline does not merely hope that a model notices a report hidden behind a generic content path. It can propagate evidence from the page that discovered the file, preserve the parent-child relationship, and replay the decision later.
+## But the Real Cost Is Not Money
 
-A general-purpose agent can often return useful material. But “useful material” and “systematic coverage of everything discoverable” are different products.
+The deterministic pipeline does not merely hope that the LLM notices `/content/dam/2024/report-en.pdf` is ESG content even though its path is a generic content-management path.
 
-In an investment workflow, absence is especially dangerous. A wrong answer can be challenged. A document that was never discovered does not announce that it is missing.
+It knows because the sustainability page that linked to it propagated its classification. Score inheritance. Deterministic. Reliable.
 
-## Nondeterminism Compounds
+An agent looking at 1,000 flat URLs has to work that relationship out from scratch. And it probably will not. The portfolio manager’s chatbot experiment in Part 1 already showed the problem: it retrieves what is easy to find, not what is complete.
 
-Agents can perform well on short tasks. Long workflows change the mathematics because reliability multiplies across dependent decisions.
+That is the real cost. The only reason this project exists is to let an institutional investor see the complete ESG information for every company and make better investment decisions.
 
-Suppose each decision is correct 95% of the time, a generous assumption. A workflow with 100 dependent decisions has:
+An agent will probably give you something. But completeness can never be guaranteed. When managing portfolios worth billions or tens of billions, missing a key sustainability report or overlooking a material environmental-risk disclosure has a hidden cost far greater than any LLM bill.
+
+The difference between $0.50 and $2 is just a number. The loss from one wrong investment decision is an order of magnitude.
+
+## Nondeterminism Compounds at Scale
+
+For one company, an agent may perform fairly well. Across 5,000 companies, the difference is not additive. It is multiplicative.
+
+Assume each agent decision has a 95% probability of being correct. That is already generous. A single company’s collection flow contains roughly 100 decision points: link classification, parameter handling, PDF decisions, stopping time, and so on.
 
 ```text
-Probability of a completely correct run = 0.95^100 ≈ 0.6%
+Probability of a perfect run: 0.95^100 ≈ 0.6%
 ```
 
-This does not mean every run collapses visibly. More often, most decisions are correct and a few drift silently. Because the output remains plausible, partial failure can be harder to detect than total failure.
+That means only about 30 out of 5,000 companies would be processed without any error.
 
-| Dimension | Deterministic pipeline | General-purpose agent |
+The Part 3B examples make the mathematics concrete:
+
+- A query-parameter loop can trap the agent on any run.
+- A PDF can fail silently while the agent believes it was collected.
+- News collection has no brake and continues until the budget is exhausted.
+
+These are not occasional mistakes. They are structural defects. Every run has some probability of triggering them, and when they occur, you may not know.
+
+The deterministic pipeline behaves differently: same input, same behavior. Logic that works on the first company works the same way on the 5,000th.
+
+| Dimension | Pipeline | Agent |
 | :-- | :-- | :-- |
-| Consistency | Same input follows the same path | Runs may drift |
-| Reproducibility | State and logs can be replayed | Identical decisions are not guaranteed |
-| Debugging | Trace a rule, state, or failure point | Interpret a generated trajectory |
-| Completeness | Define, measure, and regression-test it | Often settles for “looks sufficient” |
-| Compliance | Apply the same check every time | Depends on the model remembering the constraint |
+| Consistency | Same input → same behavior | Each run may differ |
+| Reproducibility | 100% | Cannot be guaranteed |
+| Debugging | Read logs and trace code | “Why did the agent skip this link?” |
+| Completeness | More than 98% of discoverable pages | Unknown and not reproducible |
 
-Parameter loops, silent document failures, and unbounded news exploration are not random anecdotes. They are structural consequences of missing state, budgets, and deterministic boundaries.
+For ESG data that drives institutional investment decisions, “we probably collected most of it” is not a product. The portfolio manager’s conclusion in Part 1 was completeness, consistency, auditability, and reliability. The chatbot failed on all four. Agents inherit the same problems.
 
-## Do Not Confuse a Request with a Production Line
+## Compare It with the Most Popular Agent
 
-“Find the latest sustainability report for this company.”
+OpenClaw — one of the most popular AI-agent projects on GitHub — includes browser control, code execution, and messaging integrations. It is a useful benchmark for the agent approach.
 
-That is an excellent agent task: the target is clear, the scope is small, and a person can verify the result.
+Do not misunderstand the argument. OpenClaw can be a very good productivity tool for software engineers. It augments people who already know what they need and how to verify it.
 
-“Systematically cover discoverable disclosures across a large company universe, with auditability and reproducibility.”
+The Part 3A metaphor was that the LLM is the expensive consultant and the engineer is the project manager. OpenClaw can double the project manager’s productivity. But the project manager cannot be absent.
 
-That is not a request. It is a production line.
+The problem begins when someone claims it can replace the pipeline. Look at the numbers:
 
-The difference is not whether the model is intelligent. It is whether the task requires experience to be converted into behavior that executes every time.
+| Dimension | Pipeline | OpenClaw |
+| :-- | :-- | :-- |
+| Pages per company | 300+ through systematic traversal | Context fills after roughly 20–30 pages |
+| Concurrency | 15–100 parallel requests | One page at a time |
+| Bot-defense handling | Preflight plus Playwright/Chrome cascade | One browser, no fallback |
+| State | Persists across iterations | Lost when context overflows |
+| Stopping strategy | 200-news-item cap plus adaptive thresholds | None; runs until the budget is gone |
+| PDF handling | Deferred, ordered, atomically saved, retried | Click the link and hope it lands |
+| `robots.txt` | Preflight check for every URL | Not checked, or reparsed each time |
+| Cost per company | $0.50–2.00 | $50–200+ |
+| Completeness | More than 98% of discoverable pages | Unknown and not reproducible |
 
-## The Useful Composition
+The $50–200+ estimate is not sensational. Part 3B explains the mechanism:
 
-The right architecture is not agent or pipeline. It is agent as interface, pipeline as engine.
+- No parameter normalization → loops that burn tokens.
+- No stopping rules → unbounded news collection.
+- Silent PDF failure → repeated retry and verification loops.
+- No deferral strategy → too many PDFs consume the budget too early.
+
+Each one can add another $5–30 by itself. Together, they reach this order of magnitude.
+
+## One-Off vs. Systematic
+
+“What is Shell’s latest sustainability report?”
+
+OpenClaw can answer in 30 seconds. This is exactly what agents are made for, and they do it well.
+
+“Systematically extract every ESG page from 5,000 corporate websites with more than 98% completeness, auditability, and reproducibility.”
+
+That is not a question. It is a production line.
+
+The distinction is exactly what the portfolio manager discovered in Part 1: for one company and one document, it feels like magic. Across thousands of companies, completeness, consistency, and cost all collapse.
+
+## The Right Composition
+
+It is not “agent versus pipeline.” Part 3B already made the point: the agent is the interface; the pipeline is the engine.
 
 ```text
-User: Run disclosure collection for this company.
-Agent: Interpret the intent and prepare validated parameters.
-Pipeline: Execute classification, collection, retries, state, and compliance.
-Agent: Summarize results and surface failures for human judgment.
+You in WhatsApp: “Run the ESG collector for Saint-Gobain.”
+OpenClaw → calls: python run_one_company.py --name "SAINT-GOBAIN"
+OpenClaw → “Done. 312 pages, 18 PDFs. 2 failures (IP blocked).”
 ```
 
-The agent understands intent and explains results. The pipeline performs the behavior that should not be reinvented on every run.
+The agent understands intent, formats the command, and reports the result. The pipeline executes tens of thousands of lines of deterministic code. Nobody loses. Both sides win.
 
 ## “But Agents Can Write the Code”
 
-They can, and this is one of their most valuable roles.
+This is the most common objection, and it deserves a serious answer.
 
-AI coding tools can accelerate implementation, testing, and refactoring of deterministic systems. But writing code quickly is not the same as knowing which code needs to exist.
+In fact, most of this pipeline’s code was written with Claude Opus. Development productivity increased by roughly 5–10 times. If every line had been written manually, the project would have taken much longer. AI’s ability to write code is no longer scarce.
 
-The expensive discoveries emerge during real operation: links that appear only after rendering, nonstandard elements that contain downloads, parameters that form loops, and documents that open visually but never reach storage. Once the failure is understood and the boundary is described, AI can help implement the fix.
+But the biggest lesson is precisely this: AI does not automatically see all the details.
 
-Code generation is becoming abundant. Identifying hidden requirements, choosing system boundaries, and deciding what must execute deterministically remain engineering judgment.
+None of the Part 3B problems — JavaScript rendering on certain sites, nonstandard link tags, the parameter loop on a large enterprise website, silent PDF failure — was discovered by Claude on its own.
+
+The pipeline first failed on a real company. Then the developer described the problem clearly enough for Claude to write the fix. Hidden requirements, unspoken edge cases, and problems that appear only after running real data are invisible to AI, or prohibitively expensive for it to discover independently.
+
+This is close to the lesson behind OpenAI’s harness engineering and Karpathy’s autoresearch: AI still needs to be harnessed by people. The quality of the harness shapes the quality of the output.
+
+And the complexity of this project means that harnessing it requires more than general programming skill. It requires domain experience, frontier knowledge, and intuition accumulated through hundreds of failures.
+
+Claude writes code quickly. The decision about what code needs to exist is still made by a human today.
 
 ## Where Each Approach Fits
 
+Looking back across the series, the boundary is fairly clear.
+
 Agents fit:
 
-- **One-off tasks**, where building a dedicated system would cost more than several model calls.
-- **Exploration**, before the shape of the problem is understood.
-- **Code generation**, to build and maintain deterministic systems.
-- **Low-risk, high-variety work**, where a person can review the result.
+- **One-off tasks:** “Summarize this page.” “Find the CEO’s name.” Cases where building a pipeline costs more than a few LLM calls.
+- **Exploration:** “What ESG information is on this website?” The discovery stage before a systematic method exists.
+- **Code generation:** Agents write deterministic pipeline code rather than replacing it at runtime. Claude Code wrote much of this pipeline, but the runtime does not need it.
+- **Low-risk, high-variety work:** Customer service, drafting, and code review, where 95% accuracy may be acceptable.
 
-Deterministic pipelines fit:
+Agents do not fit:
 
-- **High-throughput processing**, where large volumes need consistent treatment.
-- **High reliability**, where small error probabilities compound.
-- **Stateful multi-step workflows**, where facts and decisions persist across stages.
-- **Zero-tolerance constraints**, including permissions, compliance, and budgets.
-- **Frequent micro-decisions**, such as batching, timeouts, retries, and rate limits.
+- **High-throughput data pipelines:** Hundreds of thousands of pages need deterministic processing. Each of Part 3B’s six problems requires a deterministic solution.
+- **Reliability above 99%:** Nondeterminism compounds. The mathematics above already shows it.
+- **Stateful multi-step workflows:** Agents lose context; state machines do not. PDF deferral requires state across the entire collection cycle.
+- **Zero-tolerance compliance:** `robots.txt` is not “try to comply.” Legal needs 100% auditability.
+- **Microsecond decisions:** Batch size, timeouts, and retries. Code executes in microseconds; an LLM round trip takes seconds.
 
-This may not be the permanent frontier of model capability. It is the engineering boundary that reliable systems need to respect today.
+Everything above comes from code written in practice and failures encountered firsthand. What does the research community — not social media, not venture capital — say about it?
 
-Next: Part 5A — What the Research Says: The Data.
-
+Next: [Part 5A — What the Research Actually Says About AI Replacing Engineers.](/blog/research-data-en/)

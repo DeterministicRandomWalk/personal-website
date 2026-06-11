@@ -1,26 +1,26 @@
 ---
 title: 'Part 0: Why This Series Exists'
-description: 'An introduction to a series about combining probabilistic judgment with deterministic engineering.'
+description: 'An introduction to the series: “We built a pipeline with tens of thousands of lines of code. Why agents could not do it.”'
 pubDate: 'Jun 04 2026'
 heroImage: '../../assets/series-00-introduction-illustration.png'
 lang: 'en'
 ---
 
-> Series: What production AI needs beyond an impressive model.
+> Series: We built a pipeline with tens of thousands of lines of code. Why agents could not do it.
 
 [阅读中文版。](/blog/why-this-series-exists-zh/)
 
 AI is reshaping every industry. That no longer needs much explanation.
 
-But “reshaping” means very different things in different environments. Rapid prototyping and a production system that must process complex corporate disclosures reliably are much farther apart than most technology headlines admit.
+But “reshaping” means very different things in different environments. A startup using agents to prototype quickly and an institutional investor using AI to process ESG data from thousands of companies are much farther apart than most technology headlines admit.
 
-This series comes from work on production-grade AI for investment workflows: data pipelines, analytical tools, and evaluation systems that have to remain consistent, auditable, and useful beyond a demo.
+This series comes from the perspective of a quant developer working to modernize investment processes and decision-making. Day to day, that means building data pipelines, analytical tools, and evaluation frameworks for investment professionals.
 
-This is not theory, and it is not a prediction. It is a set of engineering lessons from building such systems. It does not claim to be the answer for every environment.
+This is not theory, and it is not a prediction. It is a field report from building production AI systems in this specific context. It does not claim to be the answer for every other environment.
 
 ## The Argument in One Paragraph
 
-Consider a production pipeline that discovers and classifies sustainability-related corporate disclosures across heterogeneous websites.
+We built a production pipeline with tens of thousands of lines of code that can retrieve complete ESG information from corporate websites around the world.
 
 It uses LLMs only for the 10% of the work that truly requires semantic judgment: deciding whether a link is ESG-related, whether a discovered domain belongs to the same company, or whether a page is genuine disclosure rather than marketing copy.
 
@@ -51,11 +51,11 @@ The argument is this: coding ability is no longer the scarce resource. Engineeri
 
 | Part | Title | Core Sentence |
 | :-- | :-- | :-- |
-| 1 | The Impossible Task | A large investment workflow needs complete corporate disclosures. Chatbots and regular expressions both fail. |
-| 2 | Why One Classifier Became Seven Layers | Each layer is a lesson from the previous failure. |
+| 1 | The Impossible Task | Portfolio managers need ESG data from 5,000 websites. Chatbots and regular expressions both fail. |
+| 2 | Where 7,400 Lines Came From | Seven layers of classification, each one a lesson from the previous failure. |
 | 3A | The 90% Agents Would Destroy, Part I | Large language models are irreplaceable for semantic judgment; the other 90% is orchestration. |
 | 3B | The 90% Agents Would Destroy, Part II | Six problems that look simple, each one enough to make an agent fail. |
-| 4 | An Honest Comparison | Pipeline vs. agents: cost, compounding failure, and the probability of completing a long workflow correctly. |
+| 4 | An Honest Comparison | Pipeline vs. agents: 3–10 times more expensive, exponential failure rates, and a 0.6% chance of perfect execution. |
 | 5A | What the Research Says: Data | Reliability cliffs; labor research finds augmentation, not automation. |
 | 5B | What the Research Says: Frameworks | Composition, not replacement. |
 | 6 | The Leverage Gap | Senior + AI = team. The first rung of the career ladder has moved higher. |
@@ -76,16 +76,16 @@ The argument is this: coding ability is no longer the scarce resource. Engineeri
 
 ## Who This Is For
 
-If you are an engineer deciding where to use agents and where to use code, this is a field report from production AI work.
+If you are an industry engineer deciding where to use agents and where to use code, this is a field report from a developer working in investment technology.
 
 If you are a manager who has heard that agents can replace your engineering team, this may show you things demos do not usually show.
 
 If you are a junior developer wondering whether AI has made your skills obsolete, Part 6 is for you. The answer is more nuanced and more honest than either the optimists or the doomers tend to suggest.
 
-If you are curious about what it takes to build AI systems for consequential workflows, this series is for you.
+If you are simply curious about what it feels like to build AI application systems in an investment environment in 2026, welcome.
 
-Start reading: Part 1 — The Impossible Disclosure Task.
+Start reading: Part 1 — The Portfolio Manager’s Impossible Task.
 
 ---
 
-Chinese version: [read Part 0 in Chinese](/blog/why-this-series-exists-zh/).
+Chinese original: [第0篇：这个系列为什么存在——它讲什么](/blog/why-this-series-exists-zh/).
