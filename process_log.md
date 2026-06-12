@@ -167,3 +167,16 @@
 - Kept the English version close to the Chinese article's structure, detail, examples, and tone.
 - Reused the already sanitized homepage artwork for Part 5A rather than creating a duplicate image file.
 - Linked Part 4 forward to Part 5A and added Part 5A to the homepage and bilingual blog ordering.
+- Verified the Part 5B research and framework claims against the cited primary papers, official talks/posts, and survey results.
+- Corrected four details before publication review:
+  - SWE-CI reports two Claude Opus models above a 0.50 zero-regression rate, not one.
+  - The Stack Overflow 84% figure means respondents who use or plan to use AI tools.
+  - Tobi Lütke helped popularize `context engineering`; the term was not attributed to him as its originator.
+  - The METR reference remains aligned with Part 5A's corrected approximately 12-hour estimate.
+- Added Part 5B as linked Chinese and English drafts.
+  - Chinese: `/blog/research-frameworks-zh/`
+  - English: `/blog/research-frameworks-en/`
+- Preserved the Chinese article's structure, examples, technical detail, and tone in the English version.
+- Generalized two potentially traceable incident details: the named jurisdiction comparison and the industry-specific website with session parameters.
+- Added and sanitized the supplied Part 5B illustration as `src/assets/series-05b-research-frameworks-illustration.jpg`.
+- Linked Part 5A forward to Part 5B and added Part 5B to the homepage and bilingual blog ordering.

@@ -127,7 +127,7 @@ More interestingly, high exposure may mean not only higher substitution risk but
 
 That is what the data says. But which frameworks explain why the numbers look this way? Karpathy’s Software 1.0/2.0/3.0, the SWE-CI long-term maintenance benchmark, and the long-tail problem all point in the same direction.
 
-Next: Part 5B — What the Research Actually Says: The Frameworks.
+Next: [Part 5B — What the Research Actually Says: The Frameworks.](/blog/research-frameworks-en/)
 
 ## Series Map
 
