@@ -209,7 +209,7 @@ The gap between people who can combine AI and engineering and people who know on
 
 That is the real leverage gap.
 
-Next: Part 6 — The Leverage Gap: Who Actually Benefits from AI.
+Next: [Part 6 — The Leverage Gap: Who Actually Benefits from AI.](/blog/leverage-gap-en/)
 
 ## Series Map
 

@@ -180,3 +180,21 @@
 - Generalized two potentially traceable incident details: the named jurisdiction comparison and the industry-specific website with session parameters.
 - Added and sanitized the supplied Part 5B illustration as `src/assets/series-05b-research-frameworks-illustration.jpg`.
 - Linked Part 5A forward to Part 5B and added Part 5B to the homepage and bilingual blog ordering.
+
+## 2026-06-18
+
+- Verified Part 6's current company, workforce, and macro-scenario claims against company announcements, regulatory filings, primary research, and clearly labeled analyst estimates.
+- Kept distinct evidence categories separate in the article:
+  - confirmed workforce actions,
+  - company-stated AI rationale,
+  - simultaneous AI investment without a direct replacement claim,
+  - analyst or media inference.
+- Updated the Oracle section so the 20,000–30,000 figure is presented as an unconfirmed analyst/media estimate rather than a confirmed company total.
+- Removed the outdated Meta planning-language example rather than publishing a claim that had changed by June 2026.
+- Added Part 6 as linked Chinese and English drafts.
+  - Chinese: `/blog/leverage-gap-zh/`
+  - English: `/blog/leverage-gap-en/`
+- Preserved the article's argument, organizational examples, technical details, scale figures, and junior-career discussion in the English version.
+- Narrowly anonymized the internal automation-tool anecdote by removing the tool nickname, meeting duration, license cost, department structure, and ending detail while preserving the substantive comparison.
+- Added and sanitized the supplied Part 6 illustration as `src/assets/series-06-leverage-gap-illustration.jpg`.
+- Linked Part 5B forward to Part 6 and added Part 6 to the homepage and bilingual blog ordering.
