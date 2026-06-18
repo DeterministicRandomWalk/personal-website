@@ -1,6 +1,6 @@
 ---
 title: 'Part 6: The Leverage Gap — Who Actually Benefits from AI'
-description: 'AI has not made judgment less valuable. It has amplified it, and companies, engineers, and junior workers are being reordered around that new leverage gap.'
+description: 'AI cannot build systems autonomously, but under expert direction it gives a small number of people with judgment enormous leverage.'
 pubDate: '2026-06-18T12:00:00Z'
 heroImage: '../../assets/series-06-leverage-gap-illustration.jpg'
 lang: 'en'
@@ -12,302 +12,176 @@ lang: 'en'
 
 [阅读中文版。](/blog/leverage-gap-zh/)
 
-The first five essays established one point: current AI cannot reliably build this kind of production system autonomously, but under expert direction it can perform a large share, sometimes most, of the execution work that can be clearly constrained.
+The first five essays proved one thing: AI cannot autonomously build systems, but under expert direction it can complete a large share, perhaps even most, of the execution work that can be clearly constrained. The bottleneck is not AI capability. It is the human judgment directing it. That creates a new gap: people who possess that judgment can use AI to leverage work that once required an entire team; people who lack it find themselves being replaced by a smaller number of AI-amplified people. Companies are reorganizing around this gap — sometimes based on sound judgment, sometimes based on overestimating the technology.
 
-The bottleneck is moving from coding ability toward the judgment of the person directing the AI. That creates a new gap. People with that judgment can use AI to accomplish work that once required a team. People without it may find that demand for their work is compressed by a smaller number of AI-amplified experts.
+Previous: Part 5B — What the Research Says: The Frameworks. METR’s reliability cliff, Anthropic’s own data, Karpathy’s composition framework, SWE-CI’s evolutionary failures — six lines of evidence, one conclusion: at least under current LLM architectures, agents are components, not systems.
 
-Companies are already reorganizing around this gap. Sometimes the decision rests on demonstrated productivity. Sometimes it is an advance bet on future capability. Sometimes ordinary cost cutting is simply repackaged as AI strategy.
+The first five essays explained why AI cannot build systems autonomously. It is roughly 10% of the complete solution and cannot independently handle architectural decisions, edge cases, or trade-offs across components. It would be easy to conclude that if AI is only 10%, its impact must be limited. That conclusion misses the other half of the story.
 
-## The Half of the Story We Have Not Told
+## The Unfinished Story
 
-The first five essays repeatedly emphasized what AI cannot do. This one begins with a fact they did not explore: how much work AI actually performed in the pipeline.
+The first five essays repeatedly emphasized what AI cannot do. This essay begins with a fact they did not explore: how much did AI actually do in this pipeline?
 
-At runtime, the LLM handles roughly 10% of the work: link classification, relevance decisions, and content scoring. The other 90% is browser fallback, retry logic, PDF handling, state management, and error recovery.
-
-That sounds like “AI did 10%; a person did 90%.”
+On the surface, the LLM handles only about 10% of the work — link classification, relevance judgment, and content scoring. The other 90% is browser cascades, retry logic, PDF handling, state management, and error recovery. That sounds like “AI did 10%; a person did 90%.”
 
 That is not what happened.
 
-Much of the deterministic 90% was also written with AI assistance: browser cascades and fallback paths, retry budgets, PDF-scoring rules, and state transitions. It was not written autonomously. It was written under the direction of an engineer with system experience:
+Most of the code in that 90% — the seven levels of browser degradation, exponential backoff for retry budgets, heuristic PDF-scoring rules — was also written by AI. Not autonomously, but under the direction of an engineer with system experience: which edge cases would explode on the 500th company website, which retry strategies would collapse at scale, which apparently reasonable architectural choices would become technical debt three months later. AI performed the execution, but direction, constraints, stopping conditions, and architectural choices came from human judgment.
 
-- Which edge cases appear on the 500th company website?
-- Which retry strategies collapse at scale?
-- Which plausible architectural choices become technical debt months later?
+So the real picture is not “AI did 10%; a person did 90%.” It is this: under expert direction, AI completed a large share, perhaps even most, of the execution work that could be clearly constrained — provided that someone first thought through the boundaries and constraints.
 
-AI performed the execution. Direction, constraints, stopping conditions, and architectural choices came from human judgment.
+That changes the entire equation. AI’s impact is not limited. It is enormous. But that impact has a precondition: the person directing it needs sufficient judgment. Without that condition, AI is an autocomplete tool that makes confident mistakes. With it, one person plus AI can deliver an outcome that previously required a team.
 
-The real picture is therefore not “AI did 10%; humans did 90%.” It is:
+This is where the leverage gap comes from. The gap is not “can AI replace people?” The first five essays already established that it cannot do so autonomously. The gap is “who can direct AI?” People with that ability gain enormous leverage. Roles whose work is easier to standardize and requires less judgment face increasing pressure — not because AI has replaced everyone, but because AI has made a small number of people with judgment extraordinarily powerful.
 
-> Under expert direction, AI completed a large share, perhaps most, of the execution work that could be clearly constrained — after someone first defined the boundaries.
+Companies are already making decisions around this gap. Sometimes they are making the right judgment. Sometimes they are running ahead of the technology. Let us look at what is happening.
 
-That changes the equation. AI’s impact is not limited. It is enormous. But it has a precondition: the person directing it needs sufficient judgment.
+## Block Cut Nearly 40% of Its Workforce. The Share Price Rose About 24%
 
-Without that precondition, AI is an autocomplete system that makes confident mistakes. With it, one person plus AI can deliver outcomes that previously required a larger team.
+February 2026. Block — Jack Dorsey’s fintech company — cut more than 4,000 employees, roughly 40% of its workforce.
 
-That is the source of the leverage gap.
+Dorsey said the quiet part aloud: “A significantly smaller team, using the tools we’re building, can do more and do it better.”
 
-The question is not only whether AI can replace people. It is who can direct AI. People with that ability gain enormous leverage. Roles built mostly from standardized execution with limited contextual judgment face growing pressure.
+CFO Amrita Ahuja was more precise: *“We see an opportunity to move faster with smaller, highly talented teams using AI to automate more work.”*
 
-Not because AI replaced everyone, but because it made a small number of people with judgment unusually powerful.
+Ahuja’s wording matters. She did not emphasize “the existing team plus new tools.” She emphasized “smaller, highly talented teams.” The leverage gap is almost written directly into the organizational language. Management is already dividing roles according to which work can be amplified by AI and which judgment remains scarce.
 
-## Block: A Smaller Team and a Higher Share Price
+## The Chain Reaction
 
-In February 2026, Block announced more than 4,000 job cuts, close to 40% of its workforce.
+In this wave of restructuring, some companies have tied AI directly to layoffs: Atlassian cut 1,600 jobs and said explicitly that the move would self-fund AI investment and reshape its skills mix; CrowdStrike’s CEO called AI a “force multiplier” that helped flatten the hiring curve; Chegg cut 45% of its workforce and directly cited AI and changes in search traffic. Other companies have moved layoffs, organizational slimming, and AI investment forward together: Pinterest cut close to 15% of employees and wrote in an SEC filing that resources would be reallocated toward AI; Amazon cut roughly 16,000 roles while increasing AI investment, although its official explanation emphasized reducing layers, increasing ownership, and removing bureaucracy rather than claiming the jobs had been directly replaced by AI.
 
-Jack Dorsey wrote publicly:
+Dorsey’s prediction: “Within the next year, I believe the majority of companies will reach the same conclusion and take similar structural actions.”
 
-> “A significantly smaller team, using the tools we’re building, can do more and do it better.”
+The public language used by these companies points in a shared direction. They no longer treat “the current job structure + AI tools” as the default combination. They are reshaping the skills mix and prioritizing people who can work with AI, direct it, and exercise judgment at critical points. Anthropic’s labor-market research found no systematic rise in unemployment, but it identified an early signal worth watching: entry into occupations with higher AI exposure may be becoming harder for younger workers. The authors explicitly call it suggestive evidence and note several alternative explanations — younger people may be staying in existing jobs, moving into other occupations, or returning to education. The discussion is especially relevant to workers aged 22–25, who traditionally perform “execution under guidance,” but the signal remains marginal and requires continued observation.
 
-The company also emphasized moving faster with smaller, more concentrated teams using AI to automate more work. After the announcement and earnings release, Block’s shares rose by roughly a quarter in after-hours trading.
+This pattern is not “AI replaces humanity.” It is a more specific structural filter: does your work consist of independently executing standardized tasks, or making context-dependent judgments under uncertainty? The first category has always faced risk — during outsourcing waves and process automation too. AI has increased the acceleration by an order of magnitude.
 
-The organizational language matters. It was not “the existing team plus new tools.” It was “a smaller team plus stronger tools.”
+## Oracle: When the Pattern Is Pushed to an Extreme
 
-Management was reorganizing around two questions:
+Only a few months after that prediction, Oracle appeared to push the pattern toward an extreme. Analysts estimated that potential cuts could affect twenty to thirty thousand people. That number remains an analyst and media estimate; Oracle has not confirmed a final total.
 
-1. Which work can AI amplify?
-2. Which judgment remains scarce?
+Oracle deserves separate attention because it reveals a mechanism deeper than “AI replaces jobs.”
 
-Dorsey predicted that more companies would reach similar conclusions within a year.
+Oracle has reported strong profit growth in recent quarters. This is not an unprofitable company cutting jobs to survive. Broad reporting and analyst estimates suggest that Oracle is freeing cash flow through large-scale reductions to support intensive AI infrastructure investment — tens of billions of dollars in AI data-center construction. Follow the external reporting and estimates, and a deeper mechanism appears: this is not merely “layoffs + AI investment.” It looks more like converting cost capacity previously allocated to people into capital expenditure for AI infrastructure — financing an AI-infrastructure bet that has not yet paid off.
 
-## A Chain Reaction, but Not Every Layoff Is an AI Layoff
+Public reporting indicates that cuts span multiple business lines, but the company has not published a complete distribution. What can be confirmed is that the reductions are not limited to one type of role. What cannot be confirmed directly is whether employees were selected precisely along a line between standardized execution and non-modular judgment.
 
-A series of related but not identical cases followed:
+This echoes Dorsey’s phrase “highly talented teams.” Without exaggerating too much, the jobs are not only being “cut”; the cost capacity they release is being redirected into AI infrastructure. That is not Oracle’s own wording. It is an interpretation that follows from external reporting and analyst estimates.
 
-- **Atlassian** announced about 1,600 job cuts. Its official explanation explicitly described restructuring to self-fund investment in AI and enterprise sales while changing the skills mix and improving profitability.
-- **CrowdStrike** cut about 500 roles. Its CEO called AI a “force multiplier” and said it was flattening the company’s hiring curve.
-- **Chegg** announced a reduction of roughly 45% of its workforce. The company directly cited the “new realities of AI” and declining search traffic.
-- **Pinterest** disclosed in an SEC filing that a restructuring would affect less than 15% of employees and explicitly reallocate resources toward AI-focused roles, teams, and product capabilities.
-- **Amazon** announced organizational changes affecting roughly 16,000 roles in January 2026 while continuing major investment in strategic areas and AI infrastructure. Amazon’s official explanation emphasized reducing layers, increasing ownership, and removing bureaucracy; it did not describe those jobs simply as being directly replaced by AI.
+This does not look temporary. It looks more like a structural shift in the definition of productivity. Companies are not merely using AI to help existing teams. They are rebuilding organizations around a new leverage ratio — fewer people, each with a greater AI multiplier, selected for judgment rather than volume of output.
 
-These cases should not be compressed into one story.
+## A Change of Era: From Assistant to Executor
 
-Some companies tie AI directly to job cuts. Some reduce headcount while investing more in AI. Some have businesses directly disrupted by generative AI. Others are carrying out familiar organizational reductions during an AI investment boom.
+AI in 2023 looked more like an assistant. You wrote code; it suggested completions. A junior employee plus GPT-4 was still a junior employee, just a faster one.
 
-The shared direction still matters. More management teams are no longer treating “the current job structure plus AI tools” as the default. They are reassessing headcount, skill mix, and organizational layers.
+By the Claude Opus 4 generation, the shift looked more qualitative than quantitative. AI no longer only autocompletes. It implements. You describe an architecture; it writes the code. You specify constraints; it produces a solution. You review and iterate. Compress the change of the past two years into one sentence: AI is pushing many organizations away from “many people execute instructions” and toward “a small number set direction while tools perform more of the execution.”
 
-Anthropic’s labor research has not found a systematic increase in unemployment, but it identified an early signal worth watching: entry into AI-exposed occupations may be becoming harder for workers aged 22–25. The authors explicitly call it suggestive evidence and note several alternative explanations.
+This series will not pretend not to see the reality: for at least some standardized, repeatable software work that can be described through explicit constraints — maintenance scripts, standard CRUD applications, typical front-end pages, template-driven mobile apps — many organizations have begun treating AI as a reason to compress pure execution roles. These are real jobs held by real people. What matters is not only technical capability, but management’s judgment about which execution can be absorbed by tools. The next time a headline says “Company X cuts 500 engineers,” look at what was cut before reaching a conclusion.
 
-The pattern is not simply “AI replaces humans.” It is a more specific filter:
+The transition is not from “people write code” to “AI writes code.” It is from “many people execute instructions” to “a small number set direction and AI executes.” This will gradually change which roles matter most inside organizations — and it is unlikely to wait until everyone is ready.
 
-> Is your work primarily the independent execution of standardized tasks, or contextual judgment under uncertainty?
+What this shift means for the person who built the pipeline — both the excitement of acceleration and the anxiety of uncertainty — receives a more personal treatment in the bonus essay, *Standing in the Middle*.
 
-The first category has always faced pressure. Outsourcing did it. Process automation did it. AI has increased the acceleration by an order of magnitude.
+## Rewriting the Arithmetic of Headcount
 
-## Oracle: When Capital Reallocation Becomes the Story
+The pipeline itself is living evidence of the leverage gap. With AI assistance, one person with judgment can process a volume of work that once required a larger team. The issue is not simply “fewer people.” Direction becomes the new bottleneck. People who have it gain multiplied leverage. People who do not become more replaceable.
 
-Oracle requires more careful language.
-
-Analysts and media reports in early 2026 estimated that potential job cuts could reach 20,000 to 30,000 as the company sought cash flow for intensive AI data-center investment. Later reporting confirmed that large-scale reductions were occurring, but Oracle did not publicly confirm a final total. The highest estimate should not be treated as established fact.
-
-Even with that uncertainty, the case exposes a mechanism deeper than “AI directly replaced these jobs.” A company can reduce labor costs and reallocate capital toward AI infrastructure.
-
-That is not evidence that a model has already taken over every affected employee’s work. It is a capital-allocation bet on future productivity:
-
-- reduce current organizational cost;
-- increase data-center, compute, and AI-product investment;
-- bet on higher output per employee in the future.
-
-Rather than saying employee cost was directly replaced by AI, it is more accurate to say the financial capacity released by the cuts was redirected toward an AI bet.
-
-That is an inference from external reporting and analyst estimates, not Oracle’s own official wording.
-
-This looks less like a temporary adjustment and more like a structural change in the definition of productivity. Companies are not only using AI to support existing teams. They are rebuilding organizations around a new leverage ratio: fewer people, each amplified more heavily, selected for judgment rather than pure execution volume.
-
-## From Assistant to Executor
-
-AI in 2023 looked more like an assistant. You wrote code; it suggested completions. A junior employee plus GPT-4 was still mostly a faster junior employee.
-
-With stronger reasoning and coding models, the change has gradually become qualitative. AI no longer only completes. It implements:
-
-- you describe the architecture; it generates code;
-- you specify constraints; it proposes a solution;
-- you review, test, correct, and iterate.
-
-Compress the change into one sentence:
-
-> AI is pushing organizations from “many people execute instructions” toward “fewer people set direction while tools perform more of the execution.”
-
-For some standardized, repeatable software work that can be described through explicit constraints — maintenance scripts, standard CRUD applications, typical front-end pages, template-driven mobile apps — organizations are already treating AI as a reason to compress pure execution roles.
-
-These are real jobs held by real people. The important variable is not only technical capability. It is management’s belief about which execution can be absorbed by tools, and that belief is not always correct.
-
-When the next headline says that a company cut 500 engineers, first ask which roles were cut, what reason the company gave, and whether AI has actually assumed the work or merely supplied the strategic narrative.
-
-The shift is not simply from “people write code” to “AI writes code.” It is from “many people execute instructions” to “a smaller number set direction and AI executes.” That changes which roles are central to an organization, and it will not wait for everyone to be ready.
-
-## Rewriting Headcount Arithmetic
-
-The pipeline itself is evidence of the leverage gap. With AI assistance, one person with judgment can handle a volume of work that previously needed broader team coordination.
-
-The issue is not merely fewer people. Direction becomes the new bottleneck. People who can provide it gain leverage; people who cannot are more substitutable.
-
-The gap also exists inside organizations, between “official automation” and the complexity of the real problem.
+The leverage gap exists not only in corporate layoff tables and macro scenarios. It also exists inside organizations, between “official automation” and the complexity of real problems. In other words, this essay is not only about who gets replaced. It is also about which problems organizations take seriously enough to automate properly, and which still need people with high judgment to provide the backstop.
 
 ### The Institution’s Alternative
 
-To put the pipeline into production, the project needed a managed environment capable of stable browser automation. An internal platform function suggested evaluating an existing, governance-approved visual automation tool and arranged a product demonstration.
+To put the pipeline into production, the developer needed a managed environment capable of supporting large-scale browser automation. An internal group suggested trying the organization’s existing visual automation solution and arranged a demonstration.
 
-It quickly became clear that the two systems solved different problems.
+The answer became clear quickly. The tool was a proprietary graphical programming environment. You dragged visual modules around a canvas, asked them to navigate to a website — mostly an internal system — click links according to a fixed pattern, and save the result to a shared location. A robust, click-based automation playground. For its intended use — repeatable, predictable tasks against stable internal pages — it worked.
 
-The tool was a proprietary graphical programming environment. Users assembled visual modules that navigated stable pages, clicked elements in fixed patterns, and saved results to specified locations.
+What it could not do was classify links across thousands of unfamiliar domains, handle anti-bot challenges, manage retry budgets, score PDFs by relevance, degrade through a browser cascade, or make decisions requiring judgment. The engineering problems described in Part 3 — browser cascades, retry logic, PDF scoring — were largely implemented by AI under human expert direction, but they required someone to know what needed to be built. That lay entirely outside the tool’s world.
 
-For its intended purpose — repeatable, predictable workflows against stable internal pages — it was useful.
+This story is not told to mock the people behind the tool. It solves a real problem — automation for predictable workflows. The story matters because it reveals the other side of the leverage gap. AI is amplifying individual engineers, while many organizations’ institutional toolboxes have not kept pace with the complexity of the problems their business teams are trying to solve. The hype world outside says agents will replace everything. Inside enterprises, the official automation offering is often a click recorder.
 
-It was not designed to:
-
-- discover and classify links across thousands of unfamiliar domains;
-- handle heterogeneous anti-automation defenses;
-- manage retry budgets and recoverable state;
-- prioritize PDFs by relevance;
-- fall back across browser paths;
-- make semantic decisions in ambiguous cases.
-
-This story is not told to mock the internal platform team. They offered a governed tool that solved a real problem, and it was reasonable within its operating boundary.
-
-The story matters because it reveals another side of the leverage gap: many institutions’ approved toolboxes have not caught up with the complexity of the problems their business teams are trying to solve.
-
-The outside world says agents will replace everything. Inside enterprises, official tools often remain reliable only for fixed, predictable workflows.
-
-The people who fall into this gap — whose problems are too complex for institutional tools but who lack the engineering ability to build a system — are precisely the people most likely to reach for a general agent and hope.
+The gap is not only between companies that have adopted AI and companies that have not. It is between what AI can make possible and what institutions actually provide. The people who fall into that gap — their problem is too complex for institutional tools, but they lack the engineering ability to build a solution — are exactly the people most likely to grab a general agent and pray that it works.
 
 ## The Leverage Equation
 
-Imagine a spectrum. One end contains data, quantitative methods, and engineering toolchains. The other contains domain knowledge, industry experience, and business judgment.
+Imagine a spectrum. At one end are data, quantitative methods, and engineering toolchains. At the other are domain knowledge, industry experience, and business judgment. Most people spend their careers at one end because the barrier in the middle is high. An engineer who wants to truly understand ESG disclosure rules used to need years immersed in the field. An investment manager who wanted to write a production browser cascade had to learn programming from scratch.
 
-Most people spend much of their careers on one end because the barrier in the middle is high. An engineer who wants to understand ESG disclosure rules needs long exposure to the field. An investment professional who wants to build a production browser cascade has to begin with programming fundamentals.
+AI is tearing down that barrier. It does not replace either end of the spectrum. It becomes a bridge between them — an engineer who understands architecture can use AI to work through an entire CSRD framework in an afternoon; an investment manager can use AI to translate domain intuition into executable code constraints. Both sides move toward the middle. Leverage is not “AI helps you work faster.” That is merely acceleration. Leverage is the ability to span both ends of the spectrum while someone else remains on one. The wider you span, the more AI can amplify.
 
-AI is lowering the barrier.
+But spanning the spectrum does not happen automatically. An engineer who has spent more than a decade debugging systems and fighting production incidents has deep intuition about what will quietly break in production. That does not automatically mean they know where an LLM is reliable and where it fails. That is another form of judgment and requires additional investment. The people who gain leverage are those with depth on one side who are willing to use AI as a bridge into the other.
 
-It does not replace either end. It becomes a bridge between them:
+The pattern applies in every industry. But to make the arithmetic concrete, use software engineering:
 
-- an engineer who understands architecture can use AI to explore a new disclosure framework quickly;
-- a domain expert can use AI to translate intuition into executable code constraints.
+You pay one senior engineer $500,000 a year. Five junior employees cost $100,000 each. The total is the same. But:
 
-Both sides move toward the middle.
+- The senior writes `CLAUDE.md` — architecture, constraints, design decisions — and AI executes. The output is production-grade because the direction is production-grade.
+- Five junior employees use the same AI but cannot write that direction. They do not know what to ask for, cannot judge whether the output will survive production, and are more likely to accept plausible but incorrect results.
+- In 2023, junior employees were at least typing the code. In 2026, AI types the code and the senior directs it. “Execution under guidance,” the role juniors traditionally performed, is exactly what AI is becoming increasingly good at.
 
-Leverage is not simply “AI makes you faster.” That is acceleration. The real leverage is the ability to span both sides of the spectrum while someone else remains on one. The wider the span, the more AI can amplify.
+The arithmetic is uncomfortable. Whether or not people say it publicly, versions of it have probably entered many CTO and management discussions. A counterintuitive fact makes it harder to dismiss: AI really does flatten part of the skill gap in the short term. Give a junior employee a good AI tool and, on tasks where AI is strong, they can approach senior-level performance. That does not necessarily help the employment market in the same way. If a senior person plus AI can deliver what once required a team, those team positions may never open.
 
-But spanning the spectrum does not happen automatically. An engineer with years of production-incident experience knows how systems fail silently, but does not automatically know where an LLM is reliable. That is another form of judgment and requires deliberate investment.
+But the arithmetic has another side. One senior person plus AI does not scale infinitely. The senior becomes the bottleneck — review capacity, context-switching costs, decision fatigue. At some point, you need more senior people, and senior people do not appear from nowhere. They grow from junior employees who received opportunities to build judgment through real work. Cut every junior position, and you optimize this quarter’s margin by sacrificing the talent pipeline five years from now.
 
-The people who gain leverage are those who have depth on one side and use AI as a bridge to explore the other.
+The tension — optimize now versus preserve future capability — has no clean answer. Companies that handle it well will retain some junior roles and redefine them: no longer “type what I tell you to type,” but “learn to direct AI alongside someone who already knows how.”
 
-## An Uncomfortable Simplified Calculation
+## What Happens If Every Company Does It?
 
-Consider a deliberately simplified example intended only to show the mechanism:
+The previous sections describe things that have happened — company announcements, analyst estimates, and labor data. The next section is a thought experiment that extends the trend to the system level. The evidence is different. Read it differently.
 
-- the total cost of one senior engineer equals the cost of five junior employees;
-- the senior writes down architecture, constraints, and design decisions, and AI executes;
-- the five juniors use the same AI but may not know what to request or how to judge whether the output survives production.
+### Macro Consequences: Rational Decisions, Irrational Results
 
-In 2023, junior employees were still doing much of the typing. By 2026, more code can be generated by AI while senior people direct and review. The traditional junior task of “execution under guidance” is precisely the part AI is improving at most quickly.
+One company shrinks its team and improves margins — a smart decision. Every company does it at once — now there is a problem.
 
-The calculation is uncomfortable, but versions of it have probably entered many management discussions.
+Citrini Research’s *The 2028 Global Intelligence Crisis* models this scenario as a thought experiment. It is not a prediction and not evidence. It is a fictional macro memo set in June 2028, a scenario asking what happens at the system level if every company makes the same rational decision. Its value is not prophecy. It is that the structure is identical to the problem this series has described: individually correct decisions accumulate into a broken system.
 
-There is also a counterintuitive fact. In the short term, AI can flatten some skill differences. Give a junior worker a good tool, and on tasks where AI is strong they may approach senior-level performance.
+Each company’s decision looks rational on its own:
 
-That does not necessarily help the labor market in the same way. If a senior person plus AI can deliver the result that once required a team, the team positions may never open.
+- Block cuts more than 4,000 people. The share price jumps about 24%.
+- Atlassian cuts 1,600 people, aiming to strengthen its financial profile.
+- Oracle may cut tens of thousands — analysts do not argue that AI has already replaced all the work, but that the cuts release cash flow for an AI-infrastructure bet.
+- Every CFO sees the same spreadsheet: smaller team + AI = higher margins.
 
-### The Other Side of the Calculation
+The collective result is a negative feedback loop:
 
-One senior person plus AI does not scale without limit.
+1. Companies shrink teams → margins improve
+2. Displaced workers reduce consumption → demand falls
+3. Revenue comes under pressure → more cuts → more AI investment
+4. The cycle repeats
 
-The senior becomes the bottleneck:
+Citrini calls it the intelligence-displacement spiral. The most disturbing part is that every step is individually correct. Nobody makes a mistake. The system makes the mistake.
 
-- review capacity is finite;
-- context switching has a cost;
-- decision fatigue accumulates;
-- one person cannot carry all institutional memory forever.
+The numbers are specific: the top 10% of earners drive more than 50% of consumer spending. A reduction in white-collar employment does not merely reduce headcount; it hollows out the demand base. A 2% decline in white-collar employment becomes a 3%–4% decline in discretionary spending, with several months of savings buffers hiding the damage until it is already deep.
 
-Eventually, the company needs more senior people. Senior people do not appear from nowhere. They grow from junior employees who receive opportunities to build judgment through real work.
-
-Eliminate every junior role and you optimize this quarter’s margin by sacrificing the talent pipeline five years from now.
-
-The tension — optimize today or preserve future capability — has no clean answer. More mature companies will keep some junior positions and redefine them:
-
-not “type what I tell you to type,” but “learn alongside someone who already knows how to direct, verify, and constrain AI.”
-
-## What If Every Company Does It?
-
-The previous sections concerned events that have occurred: company announcements, regulatory filings, analyst estimates, and labor data.
-
-The next section is a thought experiment. The evidence is different and should be read differently.
-
-### Macro Consequences: Rational Decisions, Irrational Outcome
-
-One company reduces headcount and improves margins. Rational. Every company does it at once. The system may have a problem.
-
-Citrini Research’s *The 2028 Global Intelligence Crisis* models this as a fictional future macro memo. It is not a prediction and not empirical evidence. It is a stress test asking what happens if every company makes the same individually rational choice.
-
-Each decision looks reasonable:
-
-- reduce team size;
-- increase AI investment;
-- raise output per employee;
-- improve margins.
-
-The collective result may form a negative feedback loop:
-
-1. companies shrink teams and margins improve;
-2. displaced workers reduce consumption and demand falls;
-3. revenue comes under pressure, leading to more cuts and automation;
-4. the loop repeats.
-
-Citrini calls it an intelligence-displacement spiral. The unsettling part is that every step may be individually correct. No decision maker makes an obvious error; the system still produces a bad outcome.
-
-The scenario assumes that the top 10% of earners drive more than half of consumer spending, and that a 2% decline in white-collar employment could produce a 3%–4% hit to discretionary spending, delayed by the savings buffers of higher earners.
-
-Again: these are assumptions and figures inside the scenario, not observed facts and not this essay’s forecast.
-
-The structural logic beneath them — the fallacy of composition, where what is good for each part can be bad for the whole — is a genuine economic problem.
+Again: these are assumptions inside the scenario, not observed statistics and not this essay’s prediction. But the structural logic behind them — the fallacy of composition, where something good for every part can be bad for the whole — is real economics, not science fiction.
 
 ## What About the Individual?
 
 Return from companies and macroeconomics to the individual. If the leverage gap is real, where is the path?
 
-### Is There Still a Path for Junior Workers?
+## If the Leverage Gap Is Real, What Path Remains for Junior Workers?
 
-The path is not closed. It is narrower and points in a different direction.
+The path is not closed. It is narrower, and it points in a different direction.
 
-A company that once hired 100 junior employees may hire 40. The threshold cannot become ten years of domain experience, but it can rise toward the ability to collaborate with AI rather than merely work through AI.
+A company that used to hire 100 junior employees may now hire 40. The threshold has not risen in domain expertise — you cannot expect someone entering the field to already possess that. It has risen in the ability to collaborate with AI rather than work through AI.
 
-The distinction matters.
+The difference matters. Working through AI means treating it as sophisticated autocomplete — paste in the question, copy out the answer, move on. Collaborating with AI means understanding what it does well, what it does badly, and how to verify the difference.
 
-**Working through AI** means treating it as advanced autocomplete: paste in the problem, copy out the answer, continue.
+A 2023 field experiment found that consultants using AI on a task outside its capability frontier were more likely to produce incorrect answers than those without AI, illustrating the cost of failing to question plausible output. In 2026, when AI is stronger and its output more convincing, the trap is only deeper. If the trend continues, the junior workers most likely to be hired may not be those best at generating answers with AI, but those who develop calibrated trust earlier: knowing when to rely on AI and when to question it.
 
-**Collaborating with AI** means understanding what it does well, what it does badly, and how to verify the difference.
+How do you build that ability without experience? At a smaller scale, the development of this pipeline looked like this:
 
-Research has repeatedly found that people who trust AI blindly can perform worse than people with calibrated skepticism. As models become stronger and their outputs more plausible, the trap becomes harder to see.
+1. **Use AI as an exploration tool, not a substitute for understanding.** When AI produces an answer, ask it to explain. Try to break it. Build a mental model of why it works, not merely that it works.
+2. **The things that build judgment are often not tutorial projects.** They are real things that expose edge cases, failure modes, and actual constraints. The pipeline’s lessons about PDF handling and browser cascades surfaced only under scale and pressure.
+3. **Instead of trusting benchmarks, run the smallest possible test on your own problem.** Try 100 cases and count the errors. That builds calibration faster than any marketing material.
+4. **In an environment with stronger AI, writing boundaries, stopping conditions, budgets, and exceptions clearly often matters more than “knowing how to prompt.”** Compare a junior employee asking “write me a crawler” with one asking “crawl ESG pages under these stopping conditions, retry budgets, and `robots.txt` compliance rules, and flag anything that does not match these patterns.” The distance between them is the distance between a demo and a system. `CLAUDE.md` is not magic. It is accumulated engineering judgment written down.
 
-The junior workers most likely to gain opportunities may not be those best at generating answers with AI. They may be those who develop calibrated trust early: knowing when to rely on the model and when to challenge it.
+Competition has moved earlier. A computer-science degree followed by learning on the job is no longer enough by itself. That is not despair. It is different. Junior employees who arrive having built real things, measured AI failure modes on their own projects, and developed an instinct to question plausible output may have more advantage than they expect — because the ability to direct AI is more valuable than acting as AI’s extension.
 
-How can someone build that ability without experience? The pipeline’s development process suggests a few practices:
+And this advice is not only for junior employees. Self-directed learning is the most underestimated variable in the leverage gap. AI has dramatically reduced the cost of experimentation across the spectrum. As described earlier, an engineer can use an afternoon to work through an ESG framework; an investment manager can use AI to translate domain intuition into code constraints. The point is not that AI makes learning automatic. It shifts the barrier from “can you access knowledge?” toward “do you have the curiosity and drive to acquire and calibrate it?” In more and more fields that AI can help people explore, access to knowledge is becoming cheaper. The scarcer resource is the willingness to seek it out and calibrate it.
 
-1. **Use AI as an exploration tool, not a substitute for understanding.** Ask it to explain the answer. Try to break it. Build a mental model of why it works.
-2. **Build things that expose real constraints.** Judgment rarely comes from tutorial projects. It comes from edge cases, failure modes, and actual users.
-3. **Run small tests on your own problem.** Try 100 cases and count the errors. That builds calibration faster than marketing material.
-4. **Write boundaries, stopping rules, budgets, and exceptions clearly.** The difference between “write me a crawler” and “collect these pages under these stopping conditions, retry budgets, and compliance rules, and flag exceptions” is the difference between a demo and a system.
+The pipeline is living evidence of the spectrum model. It could not have been built by a pure software engineer — without knowing which ESG disclosures mattered, the system would have collected the wrong documents. It could not have been built by a pure domain expert — without browser cascades and retry budgets, the work would have remained manual copy and paste. It exists because one person used AI as a bridge and occupied both ends of the spectrum at once.
 
-Project instruction files are not magic. They are accumulated engineering judgment written down.
+In an environment where AI amplifies cross-domain ability, the risk of taking a one-sided position — “I do not need to understand the business” or “I do not need to understand the technology” — is rising. AI replaces neither end. It gives growing advantage to people who can cross between them and leaves people who remain on only one side increasingly fragile inside many organizations.
 
-Competition has moved earlier. A degree followed by learning everything on the job is no longer as secure a path as it once was. That is not despair. It is a different path.
-
-Junior workers who arrive having built real systems, measured AI failure modes, and developed an instinct to question plausible output may have more advantage than they expect. Directing AI is becoming more valuable than acting as AI’s extension.
-
-This advice is not only for junior workers.
-
-Self-directed learning may be the most underestimated variable in the leverage gap. AI dramatically lowers the cost of experimentation across the spectrum. It does not make learning automatic. It shifts the barrier from access to knowledge toward the curiosity and discipline required to acquire and calibrate it.
-
-The pipeline is evidence for this spectrum model.
-
-A purely software perspective does not know which ESG disclosures matter and collects the wrong documents. A purely domain perspective cannot independently build browser fallback and retry budgets and returns to manual work.
-
-The system exists because engineering ability, domain judgment, and AI formed a composition.
-
-In an environment where AI amplifies cross-domain ability, the risks of saying “I do not need to understand the business” or “I do not need to understand the technology” are rising. AI replaces neither side, but gives increasing advantage to people who can cross between them.
-
-The career ladder has not disappeared. Its first rung is higher, the ladder is shorter, and it no longer rises in a straight line through one discipline. It bends between disciplines.
-
-The path from “can write code” to “can architect a system that solves a domain problem” is becoming more important and more highly rewarded.
+The career ladder has not disappeared. But its first rung is higher, the ladder is shorter because AI compresses the middle, and it no longer climbs in a straight line through one discipline. It bends between disciplines. Put the organizational changes, role compression, and cross-disciplinary leverage together, and the path from “can write code” to “can architect a system that solves a domain problem” is becoming increasingly important and increasingly well rewarded.
 
 The pipeline took nine months. During that time, it accumulated something an agent does not naturally possess at the beginning: context.
 
@@ -346,3 +220,5 @@ Next: Part 7 — Context Accumulation: What Agents Do Not Naturally Possess.
 7. Citrini Research. [“The 2028 Global Intelligence Crisis.”](https://www.citriniresearch.com/p/2028gic) 2026.
 8. CrowdStrike. [Form 8-K and Employee Communication.](https://ir.crowdstrike.com/static-files/355578e9-a500-4a76-b6b2-9d61a92a5a95) 2025.
 9. CIO / TD Cowen. [“Oracle May Slash Up to 30,000 Jobs to Fund AI Data-Center Expansion.”](https://www.cio.com/article/4125103/oracle-may-slash-up-to-30000-jobs-to-fund-ai-data-center-expansion-as-us-banks-retreat.html) 2026.
+10. Reuters. [“Jack Dorsey’s Block to Cut Nearly Half Its Workforce in AI Overhaul.”](https://www.investing.com/news/economy-news/jack-dorseys-block-to-cut-over-4000-jobs-as-ai-use-expands-shares-surge-4529839) 2026.
+11. Dell’Acqua, F. et al. [“Navigating the Jagged Technological Frontier.”](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) 2023.

@@ -40,4 +40,12 @@
 - For colleague or stakeholder anecdotes, keep the point but remove combinations of role, team, seniority, country, timing, project stage, distinctive wording, and background that could let the person identify themselves.
 - Before publishing a new English post, perform a separate re-identification review focused on traceable words/phrases and present any remaining high-risk passages to the user for manual approval.
 
+## Authorial preservation
+
+- Treat the supplied Chinese draft as the authoritative text. Preserve its paragraph order, headings, metaphors, examples, rhetorical sharpness, and wording unless the user explicitly asks for editing.
+- Do not rewrite the Chinese draft for style, balance, caution, structure, readability, or tone.
+- Make factual edits only where a claim is demonstrably inaccurate, outdated, or materially unsupported. Keep the correction as local as possible and tell the user exactly what changed.
+- Privacy edits remain required, but must be limited to the smallest identifying word or phrase. Do not use privacy review as a reason to rewrite surrounding prose.
+- The English version should be a close translation of the approved Chinese text, not a separately re-authored essay.
+
 ## Let me know each step and ask for my conformation. Explain each step

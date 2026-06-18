@@ -198,3 +198,6 @@
 - Narrowly anonymized the internal automation-tool anecdote by removing the tool nickname, meeting duration, license cost, department structure, and ending detail while preserving the substantive comparison.
 - Added and sanitized the supplied Part 6 illustration as `src/assets/series-06-leverage-gap-illustration.jpg`.
 - Linked Part 5B forward to Part 6 and added Part 6 to the homepage and bilingual blog ordering.
+- Restored the Chinese Part 6 close to the author's supplied draft and rebuilt the English edition as a close translation.
+- Completed factual, privacy, re-identification, interpersonal, and rendered-page review before publication.
+- Added an `Authorial preservation` rule to `AGENTS.md` so future bilingual posts retain the approved Chinese text and receive only local factual or privacy edits.
