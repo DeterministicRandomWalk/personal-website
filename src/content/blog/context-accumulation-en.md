@@ -135,7 +135,7 @@ One way to observe it is to look at the work in front of you. It divides roughly
 
 The pattern is a cycle: structured context → commodity → the next unstructured problem emerges → structure it → it becomes a commodity again. There is no visible end to the cycle. That sounds heavy, but it is an unavoidable reality, and not a new one. Industrial automation and offshore outsourcing have already turned the same cycle several times. What differs now is the speed, and the fact that it cuts into a layer closer to judgment. What this means in practice — what can be delegated, what cannot, and how to find the boundary — is the subject of the next essays, Parts 8A and 8B.
 
-Next: Part 8A — The Delegation Problem: Why You Cannot Simply Throw It Over the Wall.
+Next: [Part 8A — The Delegation Problem: Why You Cannot Simply Throw It Over the Wall.](/blog/delegation-problem-en/)
 
 ## Series Map
 

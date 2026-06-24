@@ -211,3 +211,12 @@
 - Completed the factual, privacy, interpersonal, and rendered-page review.
 - Added and sanitized the supplied Part 7 flower image as `src/assets/series-07-context-accumulation.jpg`.
 - Linked Part 6 forward to Part 7 and added Part 7 to the homepage and bilingual blog ordering.
+
+## 2026-06-20
+
+- Added Part 8A as linked Chinese and English drafts.
+  - Chinese: `/blog/delegation-problem-zh/`
+  - English: `/blog/delegation-problem-en/`
+- Preserved the supplied Chinese draft's structure and argument while applying local privacy/factual edits.
+- Added and sanitized the supplied Part 8A construction image as `src/assets/series-08a-delegation-problem.jpg`.
+- Linked Part 7 forward to Part 8A and added Part 8A to the homepage and bilingual blog ordering.
