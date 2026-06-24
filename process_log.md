@@ -201,3 +201,13 @@
 - Restored the Chinese Part 6 close to the author's supplied draft and rebuilt the English edition as a close translation.
 - Completed factual, privacy, re-identification, interpersonal, and rendered-page review before publication.
 - Added an `Authorial preservation` rule to `AGENTS.md` so future bilingual posts retain the approved Chinese text and receive only local factual or privacy edits.
+
+## 2026-06-19
+
+- Added Part 7 as linked Chinese and English drafts.
+  - Chinese: `/blog/context-accumulation-zh/`
+  - English: `/blog/context-accumulation-en/`
+- Preserved the supplied Chinese draft's structure, chronology, metaphors, examples, emotional texture, and argument.
+- Completed the factual, privacy, interpersonal, and rendered-page review.
+- Added and sanitized the supplied Part 7 flower image as `src/assets/series-07-context-accumulation.jpg`.
+- Linked Part 6 forward to Part 7 and added Part 7 to the homepage and bilingual blog ordering.

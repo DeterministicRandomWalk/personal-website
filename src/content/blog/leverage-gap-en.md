@@ -185,7 +185,7 @@ The career ladder has not disappeared. But its first rung is higher, the ladder 
 
 The pipeline took nine months. During that time, it accumulated something an agent does not naturally possess at the beginning: context.
 
-Next: Part 7 — Context Accumulation: What Agents Do Not Naturally Possess.
+Next: [Part 7 — Context Accumulation: What Agents Do Not Naturally Possess.](/blog/context-accumulation-en/)
 
 ## Series Map
 
