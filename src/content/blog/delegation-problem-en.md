@@ -313,7 +313,7 @@ So the next real question is no longer “should we delegate?” It is:
 
 Where should autonomy be placed, and to what degree, so that it does not cross this boundary?
 
-Next: Part 8B — The Autonomy Spectrum.
+Next: [Part 8B — The Autonomy Spectrum.](/blog/autonomy-spectrum-en/)
 
 This is Part 8A of the series. [Start from the beginning.](/blog/why-this-series-exists-en/)
 

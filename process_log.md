@@ -220,3 +220,21 @@
 - Preserved the supplied Chinese draft's structure and argument while applying local privacy/factual edits.
 - Added and sanitized the supplied Part 8A construction image as `src/assets/series-08a-delegation-problem.jpg`.
 - Linked Part 7 forward to Part 8A and added Part 8A to the homepage and bilingual blog ordering.
+
+## 2026-06-21
+
+- Added Part 8B as linked Chinese and English drafts.
+  - Chinese: `/blog/autonomy-spectrum-zh/`
+  - English: `/blog/autonomy-spectrum-en/`
+- Preserved the supplied Chinese draft's layered autonomy framework, tables, examples, and closing argument.
+- Added and sanitized the supplied Part 8B illustration as `src/assets/series-08b-autonomy-spectrum.jpg`.
+- Linked Part 8A forward to Part 8B and added Part 8B to the homepage and bilingual blog ordering.
+
+## 2026-06-22
+
+- Added Part 9 as linked Chinese and English drafts.
+  - Chinese: `/blog/other-extreme-zh/`
+  - English: `/blog/other-extreme-en/`
+- Preserved the supplied Chinese draft's mirror-argument structure about anti-hype, LeCun, research judgment, and product value.
+- Added and sanitized the supplied Part 9 illustration as `src/assets/series-09-other-extreme.jpg`.
+- Linked Part 8B forward to Part 9 and added Part 9 to the homepage and bilingual blog ordering.
