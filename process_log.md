@@ -238,3 +238,13 @@
 - Preserved the supplied Chinese draft's mirror-argument structure about anti-hype, LeCun, research judgment, and product value.
 - Added and sanitized the supplied Part 9 illustration as `src/assets/series-09-other-extreme.jpg`.
 - Linked Part 8B forward to Part 9 and added Part 9 to the homepage and bilingual blog ordering.
+
+## 2026-06-23
+
+- Added Part 10 as linked Chinese and English drafts.
+  - Chinese: `/blog/two-rooms-zh/`
+  - English: `/blog/two-rooms-en/`
+- Preserved the supplied Chinese draft's two-room structure, investment-industry analogy, and audience-specific guidance.
+- Applied a local privacy edit to avoid implying one identifiable internal collision.
+- Added and sanitized the supplied Part 10 illustration as `src/assets/series-10-two-rooms.jpg`.
+- Linked Part 9 forward to Part 10 and added Part 10 to the homepage and bilingual blog ordering.

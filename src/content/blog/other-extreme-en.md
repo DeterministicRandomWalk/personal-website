@@ -240,7 +240,7 @@ What is truly worth protecting is not some pride from a “purely hand-built era
 
 The people least likely to be replaced in the next round of change are those who can fully use AI’s leverage without outsourcing these abilities.
 
-Next: Part 10 — Two Rooms: Why Demo Lovers Never Finish, and Domain Experts Never Start.
+Next: [Part 10 — Two Rooms: Why Demo Lovers Never Finish, and Domain Experts Never Start.](/blog/two-rooms-en/)
 
 This is Part 9 of the series. [Start from the beginning.](/blog/why-this-series-exists-en/)
 
