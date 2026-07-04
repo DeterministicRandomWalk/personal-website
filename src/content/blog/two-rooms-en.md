@@ -313,7 +313,7 @@ But at this point, all of this can still be treated as a position. So the next e
 
 The next essay, the final essay in the main series, will discuss only one harder thing: evidence. Not whether this composition sounds right, but whether it actually delivered something usable in reality.
 
-Next: Part 11 — The Evidence. [Start from the beginning.](/blog/why-this-series-exists-en/)
+Next: [Part 11 — Evidence.](/blog/evidence-en/) [Start from the beginning.](/blog/why-this-series-exists-en/)
 
 ## Series Map
 
@@ -333,6 +333,6 @@ Next: Part 11 — The Evidence. [Start from the beginning.](/blog/why-this-serie
 | 08B — The Autonomy Spectrum | Finding the right level |
 | 09 — The Other Extreme | Not being the endpoint does not mean no value |
 | **10 — Two Rooms** | **You are here** |
-| 11 — The Evidence | The pipeline as evidence |
+| [11 — Evidence](/blog/evidence-en/) | The pipeline as evidence |
 | Bonus — The Counterargument | AI argues against the entire series |
 | Bonus — Standing in the Middle | The thought that arrives in the middle of the night |

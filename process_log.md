@@ -248,3 +248,13 @@
 - Applied a local privacy edit to avoid implying one identifiable internal collision.
 - Added and sanitized the supplied Part 10 illustration as `src/assets/series-10-two-rooms.jpg`.
 - Linked Part 9 forward to Part 10 and added Part 10 to the homepage and bilingual blog ordering.
+
+## 2026-06-24
+
+- Added Part 11 as linked Chinese and English drafts.
+  - Chinese: `/blog/evidence-zh/`
+  - English: `/blog/evidence-en/`
+- Preserved the supplied Chinese draft's evidence structure, production-system argument, and series-closing review.
+- Kept the local privacy edit that generalizes the specific investment-team type while preserving the timing, person-role, and vendor details requested by the author.
+- Added and sanitized the supplied Part 11 illustration as `src/assets/series-11-evidence.jpg`.
+- Linked Part 10 forward to Part 11 and added Part 11 to the homepage and bilingual blog ordering.
