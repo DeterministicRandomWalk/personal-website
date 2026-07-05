@@ -268,3 +268,13 @@
 - Kept the same local privacy generalization for the specific investment-team type used in Part 11.
 - Added and sanitized the supplied Bonus A illustration as `src/assets/series-bonus-a-rebuttal.jpg`.
 - Linked Part 11 forward to Bonus A and added Bonus A to the homepage and bilingual blog ordering.
+
+## 2026-06-26
+
+- Added Bonus B as linked Chinese and English drafts.
+  - Chinese: `/blog/understand-systems-zh/`
+  - English: `/blog/understand-systems-en/`
+- Preserved the supplied Chinese draft's learning/delegation argument, nine concrete failure examples, and sheepdog closing metaphor.
+- Paraphrased near-verbatim colleague remarks in the coding-agent anecdote while preserving the substantive point about AI-coding misunderstanding.
+- Added and sanitized the supplied Bonus B illustration as `src/assets/series-bonus-b-understand-systems.jpg`.
+- Linked Bonus A to Bonus B and added Bonus B to the homepage and bilingual blog ordering.
