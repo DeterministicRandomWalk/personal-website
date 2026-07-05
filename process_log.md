@@ -258,3 +258,13 @@
 - Kept the local privacy edit that generalizes the specific investment-team type while preserving the timing, person-role, and vendor details requested by the author.
 - Added and sanitized the supplied Part 11 illustration as `src/assets/series-11-evidence.jpg`.
 - Linked Part 10 forward to Part 11 and added Part 11 to the homepage and bilingual blog ordering.
+
+## 2026-06-25
+
+- Added Bonus A as linked Chinese and English drafts.
+  - Chinese: `/blog/rebuttal-zh/`
+  - English: `/blog/rebuttal-en/`
+- Preserved the supplied Chinese draft's Karpathy-test structure, eight-counterargument sequence, and judgment-vs-balance closing argument.
+- Kept the same local privacy generalization for the specific investment-team type used in Part 11.
+- Added and sanitized the supplied Bonus A illustration as `src/assets/series-bonus-a-rebuttal.jpg`.
+- Linked Part 11 forward to Bonus A and added Bonus A to the homepage and bilingual blog ordering.

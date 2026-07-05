@@ -328,7 +328,7 @@ This story is finished.
 
 But not completely finished. There is one more thing: we did the Karpathy test. We fed the whole series to an LLM and asked it to tear down our argument. Multiple rounds of attack and defense, honest responses, and what we learned from the exercise:
 
-Bonus Essay — Rebuttal.
+Bonus Essay — [Rebuttal.](/blog/rebuttal-en/)
 
 ## Series Review
 
@@ -353,8 +353,8 @@ Bonus Essay — Rebuttal.
 
 | Bonus | Title | Core sentence |
 | --- | --- | --- |
-| A | Rebuttal | We asked AI to attack its own series. Five rounds of debate, honest responses. |
+| A | [Rebuttal](/blog/rebuttal-en/) | We asked AI to attack its own series. Eight rebuttals, honest responses. |
 | B | Understand Systems Before Delegating to Systems | AI lowers the barrier to learning systems, but does not remove the need to understand them. Asking questions is not a substitute for understanding. |
 | C | Standing in the Middle Ground | The thought that woke up at midnight. Not fear — something more complicated. |
 
-This is the final main essay in the series. The bonus essays continue: Rebuttal · Understand Systems Before Delegating to Systems · Standing in the Middle Ground. [Start from the beginning.](/blog/why-this-series-exists-en/)
+This is the final main essay in the series. The bonus essays continue: [Rebuttal](/blog/rebuttal-en/) · Understand Systems Before Delegating to Systems · Standing in the Middle Ground. [Start from the beginning.](/blog/why-this-series-exists-en/)
