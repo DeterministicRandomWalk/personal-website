@@ -10,6 +10,8 @@ lang: 'en'
 
 [Previous: Bonus Essay — Rebuttal.](/blog/rebuttal-en/)
 
+[Next: Bonus Essay — Standing in the Middle Ground.](/blog/middle-ground-en/)
+
 [阅读中文版。](/blog/understand-systems-zh/)
 
 ## Why “Just Learn to Ask Questions” Is Dangerous

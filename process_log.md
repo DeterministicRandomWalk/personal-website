@@ -278,3 +278,12 @@
 - Paraphrased near-verbatim colleague remarks in the coding-agent anecdote while preserving the substantive point about AI-coding misunderstanding.
 - Added and sanitized the supplied Bonus B illustration as `src/assets/series-bonus-b-understand-systems.jpg`.
 - Linked Bonus A to Bonus B and added Bonus B to the homepage and bilingual blog ordering.
+
+## 2026-06-27
+
+- Added Bonus C as linked Chinese and English drafts.
+  - Chinese: `/blog/middle-ground-zh/`
+  - English: `/blog/middle-ground-en/`
+- Preserved the supplied Chinese draft's closing reflection on the middle ground, work-boundary movement, and vertical-depth positioning.
+- Added and sanitized the supplied Bonus C illustration as `src/assets/series-bonus-c-middle-ground.jpg`.
+- Linked Bonus B to Bonus C, updated prior bonus references, and added Bonus C to the homepage and bilingual blog ordering.

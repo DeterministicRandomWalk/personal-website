@@ -386,4 +386,4 @@ Main-series endpoint: → [Part 11: Evidence](/blog/evidence-en/)
 
 Start from the beginning: → [Part 1: The Impossible Task](/blog/impossible-task-en/)
 
-Other bonus essays: → Bonus Essay: Standing in the Middle Ground · [Bonus Essay: Understand Systems Before Delegating to Systems](/blog/understand-systems-en/)
+Other bonus essays: → [Bonus Essay: Standing in the Middle Ground](/blog/middle-ground-en/) · [Bonus Essay: Understand Systems Before Delegating to Systems](/blog/understand-systems-en/)

@@ -355,6 +355,6 @@ Bonus Essay — [Rebuttal.](/blog/rebuttal-en/)
 | --- | --- | --- |
 | A | [Rebuttal](/blog/rebuttal-en/) | We asked AI to attack its own series. Eight rebuttals, honest responses. |
 | B | [Understand Systems Before Delegating to Systems](/blog/understand-systems-en/) | AI lowers the barrier to learning systems, but does not remove the need to understand them. Asking questions is not a substitute for understanding. |
-| C | Standing in the Middle Ground | The thought that woke up at midnight. Not fear — something more complicated. |
+| C | [Standing in the Middle Ground](/blog/middle-ground-en/) | The thought that woke up at midnight. Not fear — something more complicated. |
 
-This is the final main essay in the series. The bonus essays continue: [Rebuttal](/blog/rebuttal-en/) · [Understand Systems Before Delegating to Systems](/blog/understand-systems-en/) · Standing in the Middle Ground. [Start from the beginning.](/blog/why-this-series-exists-en/)
+This is the final main essay in the series. The bonus essays continue: [Rebuttal](/blog/rebuttal-en/) · [Understand Systems Before Delegating to Systems](/blog/understand-systems-en/) · [Standing in the Middle Ground](/blog/middle-ground-en/). [Start from the beginning.](/blog/why-this-series-exists-en/)

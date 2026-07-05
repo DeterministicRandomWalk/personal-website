@@ -10,6 +10,8 @@ lang: 'zh-CN'
 
 [上篇：番外篇——反驳。](/blog/rebuttal-zh/)
 
+[下篇：番外篇——站在中间地带。](/blog/middle-ground-zh/)
+
 [Read the English version.](/blog/understand-systems-en/)
 
 ## 为什么“学会提问就够了”是危险的
