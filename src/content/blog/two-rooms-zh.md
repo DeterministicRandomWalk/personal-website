@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上一篇：第9篇——另一个极端。](/blog/other-extreme-zh/)
 
-[Read the English version.](/blog/two-rooms-en/)
-
 Demo爱好者看见能力，领域专家看见风险；真正缺的，是把两者接起来的责任结构。
 
 上篇：第9篇——另一个极端。“LLM已死”和“智能体统治世界”一样引人注目。两个都以同样的方式错了。中间立场，才是生产系统存在的地方。

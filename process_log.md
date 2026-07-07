@@ -287,3 +287,9 @@
 - Preserved the supplied Chinese draft's closing reflection on the middle ground, work-boundary movement, and vertical-depth positioning.
 - Added and sanitized the supplied Bonus C illustration as `src/assets/series-bonus-c-middle-ground.jpg`.
 - Linked Bonus B to Bonus C, updated prior bonus references, and added Bonus C to the homepage and bilingual blog ordering.
+
+## 2026-07-07
+
+- Changed the public site to surface only the Chinese blog series.
+- Kept English markdown source files in the repository, but excluded English blog posts from generated public routes.
+- Removed Chinese-post links to English versions and filtered RSS to Chinese posts only.

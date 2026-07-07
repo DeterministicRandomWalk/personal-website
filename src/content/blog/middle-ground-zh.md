@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上篇：番外篇——理解系统，才有资格委托系统。](/blog/understand-systems-zh/)
 
-[Read the English version.](/blog/middle-ground-en/)
-
 半夜醒来的那个念头，不只是恐惧。更准确地说，是一种被增强之后的不安。
 
 本文是整个系列的最后一篇番外。

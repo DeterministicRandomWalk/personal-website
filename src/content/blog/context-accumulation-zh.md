@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上一篇：第6篇——杠杆差距。](/blog/leverage-gap-zh/)
 
-[Read the English version.](/blog/context-accumulation-en/)
-
 ## 快速要点
 
 - 需求只有一句话，代码却写了数万行。中间那段距离，谁走过谁知道。

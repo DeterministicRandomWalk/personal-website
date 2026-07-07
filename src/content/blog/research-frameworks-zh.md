@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上一篇：第5A篇——研究到底说了什么：数据篇。](/blog/research-data-zh/)
 
-[Read the English version.](/blog/research-frameworks-en/)
-
 数据展示了可靠性断崖和“增强优于自动化”。现在来看看解释这些数据的框架，以及它们对工程意味着什么。
 
 上篇讲了 METR 的可靠性断崖：Demo 与生产之间的差距接近一个数量级。Anthropic 的劳动力研究则显示，现实中的主导模式仍然是增强，而不是自动化，而且尚未观察到系统性失业。

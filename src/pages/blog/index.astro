@@ -37,7 +37,6 @@ const seriesIndex = (id: string) => {
 };
 const bySeriesOrder = (a, b) =>
 	seriesIndex(a.id) - seriesIndex(b.id) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
-const englishPosts = posts.filter((post) => post.data.lang === 'en').sort(bySeriesOrder);
 const chinesePosts = posts.filter((post) => post.data.lang === 'zh-CN').sort(bySeriesOrder);
 ---
 
@@ -150,31 +149,10 @@ const chinesePosts = posts.filter((post) => post.data.lang === 'zh-CN').sort(byS
 			<header class="blog-heading">
 				<h1>Blog</h1>
 				<p>
-					Bilingual essays and notes. English and Chinese versions are grouped separately to
-					keep the reading path clear.
+					Chinese essays and notes. The current public blog keeps the reading path focused.
 				</p>
 			</header>
 			<section>
-				<div class="language-section" id="english-series">
-					<h2>English Series</h2>
-					<ul>
-						{
-							englishPosts.map((post) => (
-								<li>
-									<a class:list={{ 'text-only': !post.data.heroImage }} href={`/blog/${post.id}/`}>
-										{post.data.heroImage && (
-											<Image width={720} src={post.data.heroImage} alt="" />
-										)}
-										<h4 class="title">{post.data.title}</h4>
-										<p class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</div>
 				<div class="language-section" id="chinese-series">
 					<h2>中文系列</h2>
 					<ul>

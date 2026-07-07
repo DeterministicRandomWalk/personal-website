@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上一篇：第3B篇——六个“简单”问题怎样让智能体翻车。](/blog/agents-destroy-orchestration-zh/)
 
-[Read the English version.](/blog/honest-comparison-en/)
-
 同一个任务，流水线花2块钱，智能体花几百块——如果它能跑完的话。
 
 上篇讲了六个看起来简单的问题：链接提取、查询参数、停止规则、PDF处理、PDF推迟、`robots.txt`合规。每一个从外面看起来都很简单，放到真实网站上立刻崩掉。流水线把解决办法写进代码，一劳永逸。

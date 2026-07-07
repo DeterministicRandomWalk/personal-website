@@ -10,8 +10,6 @@ lang: 'zh-CN'
 
 [上篇：第11篇——证据。](/blog/evidence-zh/)
 
-[Read the English version.](/blog/rebuttal-en/)
-
 十一篇文章，一个论点。现在，我们让 AI 来把它全部推翻。
 
 上篇：第11篇——证据。投资团队以为又是一次演示。结果拿到了生产系统。决定成败的不是模型——是工程。

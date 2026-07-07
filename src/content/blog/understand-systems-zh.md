@@ -12,8 +12,6 @@ lang: 'zh-CN'
 
 [下篇：番外篇——站在中间地带。](/blog/middle-ground-zh/)
 
-[Read the English version.](/blog/understand-systems-en/)
-
 ## 为什么“学会提问就够了”是危险的
 
 AI 降低了学习系统的门槛，但它没有取消理解系统的必要。恰恰相反：越是可以把更多动作委托出去，越需要有人知道哪里会失控、哪里会静默出错、哪里必须叫停。

@@ -9,8 +9,6 @@ lang: 'zh-CN'
 > 系列：我们构建了一条几万行代码的流水线。智能体为何做不到。
 
 [上一篇：第3A篇。](/blog/llm-shines-agents-destroy-zh/)  
-[Read the English version.](/blog/agents-destroy-orchestration-en/)
-
 每个问题看起来都很简单，直到它在生产环境里把你的预算烧穿。
 
 上篇讲了 LLM 闪耀的地方和编排的 90%。模糊分类是 LLM 不可替代的 10%，域名判断同样需要语义理解。剩下 90% 全是编排。能写 `if` 的地方，就别问 LLM。
