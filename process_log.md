@@ -293,3 +293,4 @@
 - Changed the public site to surface only the Chinese blog series.
 - Kept English markdown source files in the repository, but excluded English blog posts from generated public routes.
 - Removed Chinese-post links to English versions and filtered RSS to Chinese posts only.
+- Added redirects from old English blog URLs back to the blog index.
