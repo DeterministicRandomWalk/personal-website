@@ -1,10 +1,16 @@
 ---
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import homeArt from '../assets/home-deterministic-random-walk-art.png';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const latestPost = (await getCollection('blog'))
+	.filter((post) => post.data.lang === 'zh-CN')
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 ---
 
 <!doctype html>
@@ -54,6 +60,20 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 					</figcaption>
 				</figure>
 			</section>
+			{latestPost && (
+				<section class="latest-note" aria-labelledby="latest-note-title">
+					<p class="section-kicker">Latest note</p>
+					<div class="latest-note-row">
+						<div>
+							<h2 id="latest-note-title">
+								<a href={`/blog/${latestPost.id}/`}>{latestPost.data.title}</a>
+							</h2>
+							<p>{latestPost.data.description}</p>
+						</div>
+						<p class="latest-date"><FormattedDate date={latestPost.data.pubDate} /></p>
+					</div>
+				</section>
+			)}
 			<section class="featured-series" aria-labelledby="featured-series-title">
 				<p class="section-kicker">Featured series</p>
 				<h2 id="featured-series-title">
@@ -187,6 +207,41 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		font-size: 0.82em;
 		line-height: 1.45;
 	}
+	.latest-note {
+		margin-top: clamp(3rem, 8vw, 5rem);
+		padding: 1.5rem 0;
+		border-top: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.latest-note-row {
+		display: flex;
+		justify-content: space-between;
+		gap: 2rem;
+		align-items: baseline;
+	}
+	.latest-note h2 {
+		margin: 0;
+		font-size: clamp(1.35rem, 3vw, 1.8rem);
+		letter-spacing: 0;
+	}
+	.latest-note h2 a {
+		text-decoration: none;
+	}
+	.latest-note h2 a:hover {
+		color: rgb(var(--accent));
+	}
+	.latest-note-row p:not(.latest-date) {
+		max-width: 680px;
+		margin: 0.45rem 0 0;
+		color: rgb(var(--gray));
+		line-height: 1.55;
+	}
+	.latest-date {
+		flex: 0 0 auto;
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
 	.featured-series {
 		margin-top: clamp(3rem, 8vw, 5rem);
 		padding-top: 2rem;
@@ -242,6 +297,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		}
 		.series-lists {
 			grid-template-columns: 1fr;
+		}
+		.latest-note-row {
+			display: block;
+		}
+		.latest-date {
+			margin-top: 0.55rem;
 		}
 	}
 </style>
