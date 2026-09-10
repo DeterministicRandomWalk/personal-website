@@ -1,5 +1,12 @@
 # Process Log
 
+## 2026-09-10
+
+- Added the standalone Chinese essay `风扇响了一夜`.
+- Preserved the supplied wording and product/process names because they are central to the local software-bug anecdote.
+- Formatted the process snapshot as a code block and converted the supplied image to a metadata-free JPEG for the post.
+- Verified the static build and generated route before publication.
+
 ## 2026-06-03
 
 - Confirmed the project goal: build a personal blog website using Astro and Cloudflare Pages.
