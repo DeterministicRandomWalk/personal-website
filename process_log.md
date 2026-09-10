@@ -6,6 +6,9 @@
 - Preserved the supplied wording and product/process names because they are central to the local software-bug anecdote.
 - Formatted the process snapshot as a code block and converted the supplied image to a metadata-free JPEG for the post.
 - Verified the static build and generated route before publication.
+- Added the standalone Chinese essay `最后一个知道完整答案的人`.
+- Preserved the supplied wording and technical details; no workplace, person, team, client, or internal project identifiers were present.
+- Converted the supplied image to a metadata-free JPEG and verified the static build and generated route before publication.
 
 ## 2026-06-03
 
