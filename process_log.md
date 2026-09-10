@@ -12,6 +12,9 @@
 - Added the standalone Chinese essay `谁斩杀了“斩杀线”？`.
 - Preserved the supplied model, pricing, and benchmark references; no workplace, person, team, client, or internal project identifiers were present.
 - Converted the supplied image to a metadata-free JPEG and verified the static build and generated route before publication.
+- Added the standalone Chinese essay `最难的，可能不是最难的题`.
+- Preserved the supplied argument and technical references; no workplace, person, team, client, or internal project identifiers were present.
+- Converted the supplied HEIC image to a metadata-free JPEG and verified the static build and generated route before publication.
 
 ## 2026-06-03
 
